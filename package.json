@@ -1,12 +1,16 @@
 {
-  "name": "Fun-Facts V4",
+  "name": "funfact-v4",
   "version": "4.0.0",
-  "type": "module",
-  "scripts": {
-    "start": "node index.html",
-    "vercel-build": "echo Build successful"
-  },
+  "description": "FunFact V4",
   "engines": {
     "node": "22.x"
+  },
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve .",
+    "build": "echo \"Static website - no build required\""
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
   }
 }
