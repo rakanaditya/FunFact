@@ -395,26 +395,6 @@ renderGallery(filteredFacts);
 });
 
 /*==============================
- Toast
-==============================*/
-
-function showToast(message){
-
-toast.textContent=
-
-message;
-
-toast.classList.add("show");
-
-setTimeout(()=>{
-
-toast.classList.remove("show");
-
-},2500);
-
-}
-
-/*==============================
  Favorite
 ==============================*/
 
@@ -995,3 +975,440 @@ behavior:"smooth"
 });
 
 };
+
+/*=====================================================
+ FunFact V4
+ script.js
+ Part 3
+ Advanced Features
+======================================================*/
+
+/*==============================
+ Image Preloader
+==============================*/
+
+function preloadImages(){
+
+funFacts.forEach(item=>{
+
+const img=new Image();
+
+img.src=item.image;
+
+});
+
+}
+
+window.addEventListener("load",preloadImages);
+
+/*==============================
+ Lazy Animation Observer
+==============================*/
+
+const observer=
+
+new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("fadeIn");
+
+observer.unobserve(entry.target);
+
+}
+
+});
+
+},
+
+{
+
+threshold:.15
+
+}
+
+);
+
+function observeCards(){
+
+document
+
+.querySelectorAll(".card")
+
+.forEach(card=>{
+
+observer.observe(card);
+
+});
+
+}
+
+const originalRenderGallery=
+
+renderGallery;
+
+renderGallery=function(data){
+
+originalRenderGallery(data);
+
+observeCards();
+
+};
+
+/*==============================
+ Scroll Progress
+==============================*/
+
+const progressBar=
+
+document.createElement("div");
+
+progressBar.id="progressBar";
+
+document.body.appendChild(progressBar);
+
+window.addEventListener("scroll",()=>{
+
+const height=
+
+document.documentElement.scrollHeight-
+
+window.innerHeight;
+
+const percent=
+
+(window.scrollY/height)*100;
+
+progressBar.style.width=
+
+percent+"%";
+
+});
+
+/*==============================
+ Theme
+==============================*/
+
+const themeButton=
+
+document.getElementById("themeButton");
+
+function loadTheme(){
+
+const saved=
+
+localStorage.getItem("theme");
+
+if(saved==="dark"){
+
+document.body.classList.add("dark");
+
+themeButton.textContent="☀";
+
+}else{
+
+themeButton.textContent="🌙";
+
+}
+
+}
+
+themeButton.onclick=()=>{
+
+document.body.classList.toggle("dark");
+
+const dark=
+
+document.body.classList.contains("dark");
+
+localStorage.setItem(
+
+"theme",
+
+dark?"dark":"light"
+
+);
+
+themeButton.textContent=
+
+dark?"☀":"🌙";
+
+};
+
+loadTheme();
+
+/*==============================
+ Copy Image Link
+==============================*/
+
+async function copyImage(){
+
+const item=
+
+filteredFacts[currentIndex];
+
+try{
+
+await navigator.clipboard.writeText(
+
+item.image
+
+);
+
+showToast(
+
+"Link gambar berhasil disalin"
+
+);
+
+}catch{
+
+showToast(
+
+"Gagal menyalin"
+
+);
+
+}
+
+}
+
+/*==============================
+ Long Press Download
+==============================*/
+
+let holdTimer;
+
+viewerImage.addEventListener(
+
+"touchstart",
+
+()=>{
+
+holdTimer=setTimeout(()=>{
+
+downloadButton.click();
+
+showToast(
+
+"Download dimulai"
+
+);
+
+},700);
+
+}
+
+);
+
+viewerImage.addEventListener(
+
+"touchend",
+
+()=>{
+
+clearTimeout(
+
+holdTimer
+
+);
+
+}
+
+);
+
+/*==============================
+ Auto Close Toast
+==============================*/
+
+let toastTimeout;
+
+function showToast(message){
+
+clearTimeout(
+
+toastTimeout
+
+);
+
+toast.textContent=
+
+message;
+
+toast.classList.add("show");
+
+toastTimeout=
+
+setTimeout(()=>{
+
+toast.classList.remove("show");
+
+},2500);
+
+}
+
+/*==============================
+ Random Keyboard
+==============================*/
+
+document.addEventListener(
+
+"keydown",
+
+e=>{
+
+if(e.key==="r"){
+
+randomButton.click();
+
+}
+
+});
+
+/*==============================
+ Online Offline
+==============================*/
+
+window.addEventListener(
+
+"offline",
+
+()=>{
+
+showToast(
+
+"Kamu sedang Offline"
+
+);
+
+}
+
+);
+
+window.addEventListener(
+
+"online",
+
+()=>{
+
+showToast(
+
+"Koneksi kembali"
+
+);
+
+}
+
+);
+
+/*==============================
+ Install PWA
+==============================*/
+
+let deferredPrompt;
+
+window.addEventListener(
+
+"beforeinstallprompt",
+
+e=>{
+
+e.preventDefault();
+
+deferredPrompt=e;
+
+showToast(
+
+"Aplikasi siap diinstall"
+
+);
+
+});
+
+async function installApp(){
+
+if(!deferredPrompt)return;
+
+deferredPrompt.prompt();
+
+await deferredPrompt.userChoice;
+
+deferredPrompt=null;
+
+}
+
+/*==============================
+ Refresh Viewer Favorite
+==============================*/
+
+const originalToggle=
+
+toggleFavorite;
+
+toggleFavorite=function(id){
+
+originalToggle(id);
+
+if(
+
+viewer.classList.contains("show")
+
+){
+
+updateViewer();
+
+}
+
+};
+
+/*==============================
+ Prevent Drag Image
+==============================*/
+
+document
+
+.querySelectorAll("img")
+
+.forEach(img=>{
+
+img.draggable=false;
+
+});
+
+/*==============================
+ Escape Splash
+==============================*/
+
+window.addEventListener(
+
+"load",
+
+()=>{
+
+setTimeout(()=>{
+
+hideSplash();
+
+},500);
+
+});
+
+/*==============================
+ Console
+==============================*/
+
+console.log(
+
+"%cFunFact V4 Loaded",
+
+"color:#2563eb;font-size:18px;font-weight:bold"
+
+);
+
+console.log(
+
+"Developer Mode"
+
+);
