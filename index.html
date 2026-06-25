@@ -1,6 +1,336 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>FunFact V3</title><link rel="stylesheet" href="style.css"></head>
-<body><header><h2>FunFact V3</h2><input id="q" placeholder="Cari..."><button id="theme">🌙</button></header>
-<div id="grid" class="grid"></div>
-<div id="viewer" class="viewer"><div class="toolbar"><button id="prev">◀</button><button id="next">▶</button><button id="close">✕</button></div><img id="img"><h3 id="title"></h3><div><button id="fav">♡ Favorite</button><a id="download" download>Download</a></div></div>
-<script src="data.js"></script><script src="app.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FunFact V4</title>
+
+<meta name="theme-color" content="#2563eb">
+<meta name="description" content="FunFact Gallery Modern">
+
+<link rel="manifest" href="manifest.json">
+
+<link rel="preconnect" href="https://i.imgur.com">
+
+<link rel="stylesheet" href="style.css">
+
+<link
+rel="icon"
+type="image/png"
+href="images/logo.png">
+
+<link
+rel="apple-touch-icon"
+href="images/logo.png">
+
+</head>
+
+<body>
+
+<!-- ========================= -->
+<!-- Splash Screen -->
+<!-- ========================= -->
+
+<div id="splash">
+
+<div class="loader"></div>
+
+<h1>FunFact V4</h1>
+
+<p>Loading...</p>
+
+</div>
+
+<!-- ========================= -->
+<!-- Header -->
+<!-- ========================= -->
+
+<header>
+
+<div class="logo">
+
+<img
+src="images/logo.png"
+alt="Logo">
+
+<span>FunFact V4</span>
+
+</div>
+
+<div class="header-actions">
+
+<input
+
+type="search"
+
+id="search"
+
+placeholder="Cari Judul..."
+
+autocomplete="off">
+
+<button
+id="themeButton">
+
+🌙
+
+</button>
+
+</div>
+
+</header>
+
+<!-- ========================= -->
+<!-- Category -->
+<!-- ========================= -->
+
+<section class="categoryBar">
+
+<button class="category active"
+
+data-category="all">
+
+Semua
+
+</button>
+
+<button
+class="category"
+
+data-category="Hewan">
+
+🐱 Hewan
+
+</button>
+
+<button
+class="category"
+
+data-category="Teknologi">
+
+💻 Teknologi
+
+</button>
+
+<button
+class="category"
+
+data-category="Astronomi">
+
+🌌 Astronomi
+
+</button>
+
+<button
+class="category"
+
+data-category="Sains">
+
+🧪 Sains
+
+</button>
+
+<button
+class="category"
+
+data-category="Lainnya">
+
+⭐ Lainnya
+
+</button>
+
+</section>
+
+<!-- ========================= -->
+<!-- Gallery -->
+<!-- ========================= -->
+
+<main>
+
+<div
+id="gallery"
+
+class="gallery">
+
+<!-- JavaScript -->
+
+</div>
+
+</main>
+
+<!-- ========================= -->
+<!-- Back To Top -->
+<!-- ========================= -->
+
+<button
+
+id="backTop"
+
+title="Back To Top">
+
+↑
+
+</button>
+
+<!-- ========================= -->
+<!-- Floating Button -->
+<!-- ========================= -->
+
+<button
+
+id="randomButton"
+
+title="Random">
+
+🎲
+
+</button>
+
+<!-- ========================= -->
+<!-- Viewer -->
+<!-- ========================= -->
+
+<div
+
+id="viewer"
+
+class="viewer">
+
+<div class="viewerBackground"></div>
+
+<div class="viewerContent">
+
+<button
+
+id="closeViewer"
+
+class="close">
+
+✕
+
+</button>
+
+<img
+
+id="viewerImage"
+
+draggable="false">
+
+<h2
+
+id="viewerTitle">
+
+</h2>
+
+<p
+
+id="viewerDescription">
+
+</p>
+
+<div class="viewerButtons">
+
+<button
+
+id="previousButton">
+
+⮜
+
+</button>
+
+<button
+
+id="favoriteButton">
+
+♡ Favorite
+
+</button>
+
+<button
+
+id="shareButton">
+
+Share
+
+</button>
+
+<a
+
+id="downloadButton"
+
+download>
+
+Download
+
+</a>
+
+<button
+
+id="nextButton">
+
+⮞
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ========================= -->
+<!-- Toast -->
+<!-- ========================= -->
+
+<div
+
+id="toast">
+
+</div>
+
+<!-- ========================= -->
+<!-- Footer -->
+<!-- ========================= -->
+
+<footer>
+
+<div>
+
+FunFact V4
+
+</div>
+
+<div>
+
+Modern Gallery
+
+</div>
+
+<div>
+
+© 2026
+
+</div>
+
+</footer>
+
+<script src="script.js"></script>
+
+<script>
+
+if("serviceWorker" in navigator){
+
+window.addEventListener("load",()=>{
+
+navigator.serviceWorker.register("service-worker.js");
+
+});
+
+}
+
+</script>
+
+</body>
+
+</html>
