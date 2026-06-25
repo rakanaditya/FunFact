@@ -1,6 +1,7 @@
 {
   "name": "funfact-v4",
   "version": "4.0.0",
+  "public": true,
   "description": "FunFact V4",
   "engines": {
     "node": "22.x"
