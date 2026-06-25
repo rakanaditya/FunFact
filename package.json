@@ -1,15 +1,13 @@
 {
   "name": "funfact-v4",
   "version": "4.0.0",
-  "public": true,
   "description": "FunFact V4",
   "engines": {
     "node": "22.x"
   },
   "scripts": {
-    "dev": "npx serve .",
-    "start": "npx serve .",
-    "build": "echo \"Static website - no build required\""
+    "start": "script.js",
+    "vercel-build": "echo Build successful"
   },
   "devDependencies": {
     "serve": "^14.2.4"
