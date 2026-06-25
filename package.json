@@ -1,0 +1,12 @@
+{
+  "name": "Fun-Facts V4",
+  "version": "4.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node index.html",
+    "vercel-build": "echo Build successful"
+  },
+  "engines": {
+    "node": "22.x"
+  }
+}
