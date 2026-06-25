@@ -1,0 +1,112 @@
+{
+  "name": "FunFact V4",
+  "short_name": "FunFact",
+  "description": "FunFact Gallery Modern Progressive Web App",
+  "lang": "id-ID",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0f172a",
+  "theme_color": "#2563eb",
+
+  "icons": [
+    {
+      "src": "images/logo-72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "images/logo-96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "images/logo-128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "images/logo-144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "images/logo-152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "images/logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/logo-384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "images/logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+
+  "categories": [
+    "education",
+    "entertainment",
+    "books",
+    "productivity"
+  ],
+
+  "screenshots": [
+    {
+      "src": "images/screenshot-mobile.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "images/screenshot-desktop.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+
+  "shortcuts": [
+    {
+      "name": "Random FunFact",
+      "short_name": "Random",
+      "description": "Buka FunFact Acak",
+      "url": "./index.html?random=true",
+      "icons": [
+        {
+          "src": "images/random.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Favorite",
+      "short_name": "Favorite",
+      "description": "Lihat FunFact Favorit",
+      "url": "./index.html?favorite=true",
+      "icons": [
+        {
+          "src": "images/favorite.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
+}
