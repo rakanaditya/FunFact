@@ -1,0 +1,13 @@
+const DATA=
+[{title:"Judul 1",img:"https://i.imgur.com/4AiXzf8.jpeg"},
+{title:"Judul 2",img:"https://i.imgur.com/4AiXzf8.jpeg"},
+{title:"Judul 3",img:"https://i.imgur.com/4AiXzf8.jpeg"},
+ {title:"Judul 4",img:"https://i.imgur.com/4AiXzf8.jpeg"},
+ {title:"Judul 5",img:"https://i.imgur.com/4AiXzf8.jpeg"},
+ {title:"Judul 6",img:"https://i.imgur.com/4AiXzf8.jpeg"},
+ {title:"Judul 7",img:"https://i.imgur.com/4AiXzf8.jpeg"},
+ {title:"Judul 8",img:"https://i.imgur.com/4AiXzf8.jpeg"},
+ {title:"Judul 9",img:"https://i.imgur.com/4AiXzf8.jpeg"},
+ {title:"Judul 10",img:"https://i.imgur.com/4AiXzf8.jpeg"},
+ {title:"Judul 11",img:"https://i.imgur.com/4AiXzf8.jpeg"},
+ {title:"Judul 12",img:"https://i.imgur.com/4AiXzf8.jpeg"}];
