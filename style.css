@@ -1082,6 +1082,37 @@ opacity:1;
 }
 
 /* ===========================
+Favorite Filters
+=========================== */
+#favoriteFilter{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    padding:10px 14px;
+    border:none;
+    border-radius:12px;
+    background:#2563eb;
+    color:#fff;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:600;
+    transition:.2s;
+}
+
+#favoriteFilter:hover{
+    transform:scale(1.05);
+}
+
+#favoriteFilter.active{
+    background:#e11d48;
+}
+
+#favoriteCount{
+    font-weight:bold;
+}
+
+
+/* ===========================
 Viewer Image
 =========================== */
 
