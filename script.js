@@ -53,10 +53,12 @@ await response.json();
 filteredFacts =
 [...funFacts];
 
-renderGallery(filteredFacts);
+filteredFacts = [...funFacts];
+
+applyFilters();
 updateFavoriteCount();
 hideSplash();
-
+ 
 }catch(error){
 
 console.error(error);
@@ -383,18 +385,6 @@ function toggleFavorite(id){
     updateFavoriteCount();
 
     applyFilters();
-}
-
-    if(showingFavorite){
-
-        showFavorites();
-
-    }else{
-
-        renderGallery(filteredFacts);
-
-    }
-
 }
 
 function updateFavoriteCount(){
