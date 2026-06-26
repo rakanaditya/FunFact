@@ -504,6 +504,7 @@ return getFavorites()
 ==============================*/
 
 loadFunFacts();
+updateFavoriteCount();
 /*=====================================================
  FunFact V4
  script.js
