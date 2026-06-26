@@ -42,30 +42,31 @@ document.getElementById("favoriteCount");
 
 async function loadFunFacts(){
 
-try{
+    try{
 
-const response =
-await fetch("data/funfacts.json");
+        const response = await fetch("data/funfacts.json");
 
-funFacts =
-await response.json();
+        if(!response.ok){
+            throw new Error("JSON gagal dimuat");
+        }
 
-filteredFacts =
-[...funFacts];
+        funFacts = await response.json();
 
-filteredFacts = [...funFacts];
+        applyFilters();
 
-applyFilters();
-updateFavoriteCount();
-hideSplash();
- 
-}catch(error){
+        updateFavoriteCount();
 
-console.error(error);
+        hideSplash();
 
-showToast("Gagal memuat data.");
+    }catch(error){
 
-}
+        console.error(error);
+
+        showToast("Gagal memuat data.");
+
+        hideSplash();
+
+    }
 
 }
 
@@ -75,12 +76,13 @@ showToast("Gagal memuat data.");
 
 function applyFilters(){
 
-    const keyword = searchInput.value.toLowerCase().trim();
+    if(!searchInput || !gallery) return;
+
+    const keyword = (searchInput.value || "").toLowerCase().trim();
     const favorites = getFavorites();
 
     filteredFacts = funFacts.filter(item=>{
 
-        // Category
         if(
             currentCategory !== "all" &&
             item.category !== currentCategory
@@ -88,7 +90,6 @@ function applyFilters(){
             return false;
         }
 
-        // Favorite
         if(
             showingFavorite &&
             !favorites.includes(item.id)
@@ -96,18 +97,12 @@ function applyFilters(){
             return false;
         }
 
-        // Search
-        if(keyword){
-
-            return (
-                item.title.toLowerCase().includes(keyword) ||
-                item.category.toLowerCase().includes(keyword) ||
-                item.description.toLowerCase().includes(keyword)
-            );
-
-        }
-
-        return true;
+        return (
+            !keyword ||
+            (item.title || "").toLowerCase().includes(keyword) ||
+            (item.category || "").toLowerCase().includes(keyword) ||
+            (item.description || "").toLowerCase().includes(keyword)
+        );
 
     });
 
