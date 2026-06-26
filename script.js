@@ -1,4 +1,4 @@
-/*=====================================================
+,/*=====================================================
  FunFact V4
  script.js
  Part 1
@@ -316,9 +316,19 @@ currentCategory=
 
 button.dataset.category;
 
+ 
+
 if(currentCategory==="all"){
 
-filteredFacts=[...funFacts];
+    filteredFacts=[...funFacts];
+
+}else{
+
+    filteredFacts=funFacts.filter(item=>
+
+        item.category===currentCategory
+
+    );
 
 }
 
@@ -335,20 +345,8 @@ if(showingFavorite){
 }
 
 
-else{
 
-filteredFacts=
-
-funFacts.filter(item=>
-
-item.category===
-
-currentCategory
-
-);
-
-}
-
+ 
 const keyword=
 
 searchInput.value
