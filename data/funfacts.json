@@ -20,11 +20,19 @@
     "category": "Happy",
     "description": "Orang yang sempurna untukku"
   },
+  
   {
     "id": 4,
     "title": "disini tutup mukadi sana cari muka jelas beda kelas",
     "image": "https://i.imgur.com/P5LEOcB.png",
     "category": "Sad",
     "description": "kelazz king"
+  },
+    {
+    "id": 5,
+    "title": "Marin Kitagawa",
+    "image": "https://cdn.discordapp.com/attachments/1370785386867064962/1383376497687134238/image.png",
+    "category": "Anime",
+    "description": "Marin Kitagawa adalah Waifu Karbit Rakan Aditya"
   }
 ]
