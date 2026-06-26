@@ -385,13 +385,15 @@ item.description
 
 if(showingFavorite){
 
-    showFavorites();
+    const favorites = getFavorites();
 
-}else{
-
-    renderGallery(filteredFacts);
+    filteredFacts = filteredFacts.filter(item=>
+        favorites.includes(item.id)
+    );
 
 }
+
+renderGallery(filteredFacts);
 
 };
 
@@ -476,7 +478,35 @@ function showFavorites(){
 
     favoriteFilter.classList.add("active");
 
-    searchInput.dispatchEvent(new Event("input"));
+    const keyword = searchInput.value.toLowerCase().trim();
+    const favorites = getFavorites();
+
+    filteredFacts = funFacts.filter(item=>{
+
+        if(currentCategory !== "all" &&
+           item.category !== currentCategory){
+            return false;
+        }
+
+        if(!favorites.includes(item.id)){
+            return false;
+        }
+
+        if(keyword){
+
+            return (
+                item.title.toLowerCase().includes(keyword) ||
+                item.category.toLowerCase().includes(keyword) ||
+                item.description.toLowerCase().includes(keyword)
+            );
+
+        }
+
+        return true;
+
+    });
+
+    renderGallery(filteredFacts);
 
 }
 
@@ -486,7 +516,30 @@ function showAllFacts(){
 
     favoriteFilter.classList.remove("active");
 
-    searchInput.dispatchEvent(new Event("input"));
+    const keyword = searchInput.value.toLowerCase().trim();
+
+    filteredFacts = funFacts.filter(item=>{
+
+        if(currentCategory !== "all" &&
+           item.category !== currentCategory){
+            return false;
+        }
+
+        if(keyword){
+
+            return (
+                item.title.toLowerCase().includes(keyword) ||
+                item.category.toLowerCase().includes(keyword) ||
+                item.description.toLowerCase().includes(keyword)
+            );
+
+        }
+
+        return true;
+
+    });
+
+    renderGallery(filteredFacts);
 
 }
 
