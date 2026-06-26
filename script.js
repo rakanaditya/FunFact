@@ -693,13 +693,17 @@ previousImage;
 
 favoriteButton.onclick=()=>{
 
-const item=
+    const item=filteredFacts[currentIndex];
 
-filteredFacts[currentIndex];
+    toggleFavorite(item.id);
 
-toggleFavorite(item.id);
+    if(showingFavorite){
 
-updateViewer();
+        showFavorites();
+
+    }
+
+    updateViewer();
 
 };
 
@@ -1380,29 +1384,6 @@ deferredPrompt=null;
 
 }
 
-/*==============================
- Refresh Viewer Favorite
-==============================*/
-
-const originalToggle=
-
-toggleFavorite;
-
-toggleFavorite=function(id){
-
-originalToggle(id);
-
-if(
-
-viewer.classList.contains("show")
-
-){
-
-updateViewer();
-
-}
-
-};
 
 /*==============================
  Prevent Drag Image
