@@ -4,17 +4,17 @@
  Version 4.0.0
 ======================================================*/
 
-const CACHE_NAME = "funfact-v4-cache-v4.0";
+const CACHE_NAME = "funfact-v4-cache-v4";
 
 const STATIC_CACHE = [
 
     "./",
-/*   "./index.html", */
+   "./index.html", 
     "./style.css",
     "./script.js",
     "./manifest.json", 
 
-  /*  "./data/funfacts.json", */
+   "./data/funfacts.json",
 
     "./images/logo.png",
 
