@@ -68,6 +68,54 @@ showToast("Gagal memuat data.");
 }
 
 /*==============================
+ Update ApplyFilter
+==============================*/
+
+function applyFilters(){
+
+    const keyword = searchInput.value.toLowerCase().trim();
+    const favorites = getFavorites();
+
+    filteredFacts = funFacts.filter(item=>{
+
+        // Category
+        if(
+            currentCategory !== "all" &&
+            item.category !== currentCategory
+        ){
+            return false;
+        }
+
+        // Favorite
+        if(
+            showingFavorite &&
+            !favorites.includes(item.id)
+        ){
+            return false;
+        }
+
+        // Search
+        if(keyword){
+
+            return (
+                item.title.toLowerCase().includes(keyword) ||
+                item.category.toLowerCase().includes(keyword) ||
+                item.description.toLowerCase().includes(keyword)
+            );
+
+        }
+
+        return true;
+
+    });
+
+    renderGallery(filteredFacts);
+
+}
+
+
+
+/*==============================
  Hide Splash
 ==============================*/
 
@@ -259,42 +307,12 @@ return card;
  Search
 ==============================*/
 
-searchInput.addEventListener("input", function(){
+searchInput.addEventListener("input",()=>{
 
-    const keyword = this.value.toLowerCase().trim();
-
-    filteredFacts = funFacts.filter(item=>{
-
-        const match =
-
-            item.title.toLowerCase().includes(keyword) ||
-
-            item.category.toLowerCase().includes(keyword) ||
-
-            item.description.toLowerCase().includes(keyword);
-
-        if(!match) return false;
-
-        if(currentCategory!=="all" &&
-           item.category!==currentCategory){
-
-            return false;
-
-        }
-
-        if(showingFavorite){
-
-            return getFavorites().includes(item.id);
-
-        }
-
-        return true;
-
-    });
-
-    renderGallery(filteredFacts);
+    applyFilters();
 
 });
+
 
 /*==============================
  Category
@@ -302,100 +320,19 @@ searchInput.addEventListener("input", function(){
 
 categoryButtons.forEach(button=>{
 
-button.onclick=()=>{
+    button.onclick=()=>{
 
-categoryButtons.forEach(btn=>{
+        categoryButtons.forEach(btn=>{
+            btn.classList.remove("active");
+        });
 
-btn.classList.remove("active");
+        button.classList.add("active");
 
-});
+        currentCategory = button.dataset.category;
 
-button.classList.add("active");
+        applyFilters();
 
-currentCategory=
-
-button.dataset.category;
-
- 
-
-if(currentCategory==="all"){
-
-    filteredFacts=[...funFacts];
-
-}else{
-
-    filteredFacts=funFacts.filter(item=>
-
-        item.category===currentCategory
-
-    );
-
-}
-
-if(showingFavorite){
-
-    const favorites=getFavorites();
-
-    filteredFacts=filteredFacts.filter(item=>
-
-        favorites.includes(item.id)
-
-    );
-
-}
-
-
-
- 
-const keyword=
-
-searchInput.value
-
-.toLowerCase()
-
-.trim();
-
-if(keyword!=""){
-
-filteredFacts=
-
-filteredFacts.filter(item=>{
-
-return(
-
-item.title
-
-.toLowerCase()
-
-.includes(keyword)
-
-||
-
-item.description
-
-.toLowerCase()
-
-.includes(keyword)
-
-);
-
-});
-
-}
-
-if(showingFavorite){
-
-    const favorites = getFavorites();
-
-    filteredFacts = filteredFacts.filter(item=>
-        favorites.includes(item.id)
-    );
-
-}
-
-renderGallery(filteredFacts);
-
-};
+    };
 
 });
 
@@ -435,22 +372,18 @@ function toggleFavorite(id){
     let favorites = getFavorites();
 
     if(favorites.includes(id)){
-
         favorites = favorites.filter(item => item !== id);
-
         showToast("Favorite dihapus");
-
     }else{
-
         favorites.push(id);
-
         showToast("Ditambahkan ke Favorite");
-
     }
 
     saveFavorites(favorites);
-
     updateFavoriteCount();
+
+    applyFilters();
+}
 
     if(showingFavorite){
 
@@ -478,35 +411,7 @@ function showFavorites(){
 
     favoriteFilter.classList.add("active");
 
-    const keyword = searchInput.value.toLowerCase().trim();
-    const favorites = getFavorites();
-
-    filteredFacts = funFacts.filter(item=>{
-
-        if(currentCategory !== "all" &&
-           item.category !== currentCategory){
-            return false;
-        }
-
-        if(!favorites.includes(item.id)){
-            return false;
-        }
-
-        if(keyword){
-
-            return (
-                item.title.toLowerCase().includes(keyword) ||
-                item.category.toLowerCase().includes(keyword) ||
-                item.description.toLowerCase().includes(keyword)
-            );
-
-        }
-
-        return true;
-
-    });
-
-    renderGallery(filteredFacts);
+    applyFilters();
 
 }
 
@@ -516,30 +421,7 @@ function showAllFacts(){
 
     favoriteFilter.classList.remove("active");
 
-    const keyword = searchInput.value.toLowerCase().trim();
-
-    filteredFacts = funFacts.filter(item=>{
-
-        if(currentCategory !== "all" &&
-           item.category !== currentCategory){
-            return false;
-        }
-
-        if(keyword){
-
-            return (
-                item.title.toLowerCase().includes(keyword) ||
-                item.category.toLowerCase().includes(keyword) ||
-                item.description.toLowerCase().includes(keyword)
-            );
-
-        }
-
-        return true;
-
-    });
-
-    renderGallery(filteredFacts);
+    applyFilters();
 
 }
 
@@ -556,6 +438,9 @@ favoriteFilter.onclick = () => {
     }
 
 };
+
+
+
  
 /*==============================
  Update Favorite Icon
