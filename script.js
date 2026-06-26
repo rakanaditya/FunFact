@@ -29,6 +29,11 @@ document.getElementById("splash");
 const toast =
 document.getElementById("toast");
 
+const favoriteFilter =
+document.getElementById("favoriteFilter");
+
+const favoriteCount =
+document.getElementById("favoriteCount");
 
 /*==============================
  Load JSON
@@ -456,6 +461,27 @@ function toggleFavorite(id){
     }
 
     saveFavorites(favorites);
+
+    updateFavoriteCount();
+
+    renderGallery(filteredFacts);
+
+}
+
+function updateFavoriteCount(){
+
+    favoriteCount.textContent =
+    getFavorites().length;
+
+}
+
+function showFavorites(){
+
+    const favorites = getFavorites();
+
+    filteredFacts = funFacts.filter(item =>
+        favorites.includes(item.id)
+    );
 
     renderGallery(filteredFacts);
 
