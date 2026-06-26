@@ -9,12 +9,12 @@ const CACHE_NAME = "funfact-v4-cache-v4.2";
 const STATIC_CACHE = [
 
     "./",
-   "./index.html",
+/*   "./index.html", */
     "./style.css",
     "./script.js",
     "./manifest.json", 
 
-   "./data/funfacts.json",
+  /*  "./data/funfacts.json", */
 
     "./images/logo.png",
 
