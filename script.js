@@ -429,47 +429,28 @@ JSON.stringify(data)
 
 }
 
+
 function toggleFavorite(id){
 
-let favorites=
+    let favorites = getFavorites();
 
-getFavorites();
+    if(favorites.includes(id)){
 
-if(
+        favorites = favorites.filter(item=>item!==id);
 
-favorites.includes(id)
+        showToast("Favorite dihapus");
 
-){
+    }else{
 
-favorites=
+        favorites.push(id);
 
-favorites.filter(
+        showToast("Ditambahkan ke Favorite");
 
-item=>item!==id
+    }
 
-);
+    saveFavorites(favorites);
 
-showToast(
-
-"Favorite dihapus"
-
-);
-
-}else{
-
-favorites.push(id);
-
-showToast(
-
-"Ditambahkan ke Favorite"
-
-);
-
-}
-
-function showFavorites(){
-
-renderGallery(filteredFacts);
+    renderGallery(filteredFacts);
 
 }
  
