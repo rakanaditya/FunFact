@@ -313,8 +313,15 @@ item.category===currentCategory
 
 }
 
-renderGallery(filteredFacts);
+function showFavorites(){
 
+    const favorites = getFavorites();
+
+    filteredFacts = funFacts.filter(item =>
+        favorites.includes(item.id)
+    );
+
+    renderGallery(filteredFacts);
 }
 
 );
