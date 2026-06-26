@@ -260,7 +260,6 @@ return card;
 ==============================*/
 
 searchInput.addEventListener("input", function(){
-searchInput.addEventListener("input", function(){
 
     const keyword = this.value.toLowerCase().trim();
 
