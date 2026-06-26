@@ -332,22 +332,21 @@ if(showingFavorite){
   
     );  
   
-}  
-  
-  
-else{  
-  
-filteredFacts=  
-  
-funFacts.filter(item=>  
-  
-item.category===  
-  
-currentCategory  
-  
-);  
-  
-}  
+}else{
+
+    if(currentCategory==="all"){
+
+        filteredFacts=[...funFacts];
+
+    }else{
+
+        filteredFacts=funFacts.filter(item=>
+            item.category===currentCategory
+        );
+
+    }
+
+}
   
 const keyword=  
   
