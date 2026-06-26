@@ -4,7 +4,7 @@
  Version 4.0.0
 ======================================================*/
 
-const CACHE_NAME = "funfact-v4-cache-v.2";
+const CACHE_NAME = "funfact-v4-cache-v2.1";
 
 const STATIC_CACHE = [
 
