@@ -29,6 +29,14 @@ document.getElementById("splash");
 const toast =
 document.getElementById("toast");
 
+const favoriteFilter =
+document.getElementById("favoriteFilter");
+
+const favoriteCount =
+document.getElementById("favoriteCount");
+
+let showingFavorite = false;
+
 /*==============================
  Load JSON
 ==============================*/
@@ -243,6 +251,49 @@ icon.textContent=isFavorite(item.id)
 return card;
 
 }
+
+
+/*==============================
+ Favorite Filters
+==============================*/
+
+function updateFavoriteCount(){
+
+favoriteCount.textContent =
+getFavorites().length;
+
+}
+
+function showFavorites(){
+
+const favorites =
+getFavorites();
+
+filteredFacts =
+funFacts.filter(item=>
+favorites.includes(item.id)
+);
+
+renderGallery(filteredFacts);
+
+showingFavorite=true;
+
+favoriteFilter.classList.add("active");
+
+}
+
+function showAllFacts(){
+
+filteredFacts=[...funFacts];
+
+renderGallery(filteredFacts);
+
+showingFavorite=false;
+
+favoriteFilter.classList.remove("active");
+
+}
+
 
 /*==============================
  Search
@@ -462,12 +513,44 @@ showToast(
 
 }
 
-saveFavorites(favorites);
+function showFavorites(){
 
-renderGallery(filteredFacts);
+const favorites=getFavorites();
+
+filteredFacts=
+
+funFacts.filter(item=>
+
+favorites.includes(item.id)
+
+);
+
+if(filteredFacts.length==0){
+
+gallery.innerHTML=`
+
+<div class="empty">
+
+<h2>❤️ Belum ada Favorite</h2>
+
+<p>Tekan ikon hati pada gambar.</p>
+
+</div>
+
+`;
+
+return;
 
 }
 
+renderGallery(filteredFacts);
+
+showingFavorite=true;
+
+favoriteFilter.classList.add("active");
+
+}
+ 
 /*==============================
  Update Favorite Icon
 ==============================*/
@@ -485,7 +568,7 @@ return getFavorites()
 ==============================*/
 
 loadFunFacts();
-
+updateFavoriteCount();
 /*=====================================================
  FunFact V4
  script.js
