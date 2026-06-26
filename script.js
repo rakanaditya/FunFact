@@ -12,6 +12,7 @@ let funFacts = [];
 let filteredFacts = [];
 let currentIndex = 0;
 let currentCategory = "all";
+let showingFavorite = false;
 
 /*==============================
  Elements
@@ -53,7 +54,7 @@ filteredFacts =
 [...funFacts];
 
 renderGallery(filteredFacts);
-
+updateFavoriteCount();
 hideSplash();
 
 }catch(error){
@@ -318,17 +319,6 @@ item.category===currentCategory
 
 }
 
-function showFavorites(){
-
-    const favorites = getFavorites();
-
-    filteredFacts = funFacts.filter(item =>
-        favorites.includes(item.id)
-    );
-
-    renderGallery(filteredFacts);
-}
-
 );
 
 /*==============================
@@ -448,7 +438,7 @@ function toggleFavorite(id){
 
     if(favorites.includes(id)){
 
-        favorites = favorites.filter(item=>item!==id);
+        favorites = favorites.filter(item => item !== id);
 
         showToast("Favorite dihapus");
 
@@ -464,18 +454,29 @@ function toggleFavorite(id){
 
     updateFavoriteCount();
 
-    renderGallery(filteredFacts);
+    if(showingFavorite){
+
+        showFavorites();
+
+    }else{
+
+        renderGallery(filteredFacts);
+
+    }
 
 }
 
 function updateFavoriteCount(){
 
-    favoriteCount.textContent =
-    getFavorites().length;
+    const total = getFavorites().length;
+
+    favoriteCount.textContent = total;
 
 }
 
 function showFavorites(){
+
+    showingFavorite = true;
 
     const favorites = getFavorites();
 
@@ -485,7 +486,35 @@ function showFavorites(){
 
     renderGallery(filteredFacts);
 
+    favoriteFilter.classList.add("active");
+
 }
+
+function showAllFacts(){
+
+    showingFavorite = false;
+
+    filteredFacts = [...funFacts];
+
+    renderGallery(filteredFacts);
+
+    favoriteFilter.classList.remove("active");
+
+}
+
+favoriteFilter.onclick = () => {
+
+    if(showingFavorite){
+
+        showAllFacts();
+
+    }else{
+
+        showFavorites();
+
+    }
+
+};
  
 /*==============================
  Update Favorite Icon
