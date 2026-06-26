@@ -1,12 +1,12 @@
-,/*=====================================================
- FunFact V4
- script.js
- Part 1
-======================================================*/
+,/=====================================================
+FunFact V4
+script.js
+Part 1
+======================================================/
 
-/*==============================
- Global Variables
-==============================*/
+/==============================
+Global Variables
+==============================/
 
 let funFacts = [];
 let filteredFacts = [];
@@ -14,9 +14,9 @@ let currentIndex = 0;
 let currentCategory = "all";
 let showingFavorite = false;
 
-/*==============================
- Elements
-==============================*/
+/==============================
+Elements
+==============================/
 
 const gallery = document.getElementById("gallery");
 const searchInput = document.getElementById("search");
@@ -36,85 +36,40 @@ document.getElementById("favoriteFilter");
 const favoriteCount =
 document.getElementById("favoriteCount");
 
-/*==============================
- Load JSON
-==============================*/
+/==============================
+Load JSON
+==============================/
 
 async function loadFunFacts(){
 
-    try{
+try{
 
-        const response = await fetch("data/funfacts.json");
+const response =
+await fetch("data/funfacts.json");
 
-        if(!response.ok){
-            throw new Error("JSON gagal dimuat");
-        }
+funFacts =
+await response.json();
 
-        funFacts = await response.json();
+filteredFacts =
+[...funFacts];
 
-        applyFilters();
+renderGallery(filteredFacts);
+updateFavoriteCount();
+hideSplash();
 
-        updateFavoriteCount();
+}catch(error){
 
-        hideSplash();
+console.error(error);
 
-    }catch(error){
-
-        console.error(error);
-
-        showToast("Gagal memuat data.");
-
-        hideSplash();
-
-    }
+showToast("Gagal memuat data.");
 
 }
 
-/*==============================
- Update ApplyFilter
-==============================*/
-
-function applyFilters(){
-
-    if(!searchInput || !gallery) return;
-
-    const keyword = (searchInput.value || "").toLowerCase().trim();
-    const favorites = getFavorites();
-
-    filteredFacts = funFacts.filter(item=>{
-
-        if(
-            currentCategory !== "all" &&
-            item.category !== currentCategory
-        ){
-            return false;
-        }
-
-        if(
-            showingFavorite &&
-            !favorites.includes(item.id)
-        ){
-            return false;
-        }
-
-        return (
-            !keyword ||
-            (item.title || "").toLowerCase().includes(keyword) ||
-            (item.category || "").toLowerCase().includes(keyword) ||
-            (item.description || "").toLowerCase().includes(keyword)
-        );
-
-    });
-
-    renderGallery(filteredFacts);
-
 }
 
-
-
-/*==============================
- Hide Splash
-==============================*/
+/==============================
+Hide Splash
+==============================/
 
 function hideSplash(){
 
@@ -126,9 +81,9 @@ splash.classList.add("hide");
 
 }
 
-/*==============================
- Render Gallery
-==============================*/
+/==============================
+Render Gallery
+==============================/
 
 function renderGallery(data){
 
@@ -139,23 +94,12 @@ if(data.length===0){
 gallery.innerHTML=
 
 `
-<div class="empty">
 
-<h2>
+<div class="empty">  <h2>  Tidak Ada Data
 
-Tidak Ada Data
+</h2>  <p>  Fun Fact tidak ditemukan.
 
-</h2>
-
-<p>
-
-Fun Fact tidak ditemukan.
-
-</p>
-
-</div>
-
-`;
+</p>  </div>  `;
 
 return;
 
@@ -173,9 +117,9 @@ createCard(item,index)
 
 }
 
-/*==============================
- Create Card
-==============================*/
+/==============================
+Create Card
+==============================/
 
 function createCard(item,index){
 
@@ -197,37 +141,19 @@ src="${item.image}"
 
 alt="${item.title}"
 
->
+> 
 
-<div class="cardOverlay">
+<div class="cardOverlay">  <div class="cardTitle">  ${item.title}
 
-<div class="cardTitle">
+</div>  <div class="cardCategory">  ${item.category}
 
-${item.title}
-
-</div>
-
-<div class="cardCategory">
-
-${item.category}
-
-</div>
-
-</div>
-
-<div class="cardFooter">
-
-<div class="cardButtons">
-
-<button
+</div>  </div>  <div class="cardFooter">  <div class="cardButtons">  <button
 
 class="primaryButton viewButton">
 
 Lihat
 
-</button>
-
-<a
+</button>  <a
 
 class="download"
 
@@ -239,11 +165,7 @@ target="_blank">
 
 Download
 
-</a>
-
-</div>
-
-<button
+</a>  </div>  <button
 
 class="favorite"
 
@@ -251,11 +173,7 @@ data-id="${item.id}">
 
 ${isFavorite(item.id) ? "❤" : "♡"}
 
-</button>
-
-</div>
-
-`;
+</button>  </div>  `;
 
 card
 
@@ -296,46 +214,146 @@ return card;
 
 }
 
+/==============================
+Search
+==============================/
 
+searchInput.addEventListener("input", function(){
 
+const keyword = this.value.toLowerCase().trim();  
 
+filteredFacts = funFacts.filter(item=>{  
 
-/*==============================
- Search
-==============================*/
+    const match =  
 
-searchInput.addEventListener("input",()=>{
+        item.title.toLowerCase().includes(keyword) ||  
 
-    applyFilters();
+        item.category.toLowerCase().includes(keyword) ||  
+
+        item.description.toLowerCase().includes(keyword);  
+
+    if(!match) return false;  
+
+    if(currentCategory!=="all" &&  
+       item.category!==currentCategory){  
+
+        return false;  
+
+    }  
+
+    if(showingFavorite){  
+
+        return getFavorites().includes(item.id);  
+
+    }  
+
+    return true;
+
+});  
+
+renderGallery(filteredFacts);
 
 });
 
-
-/*==============================
- Category
-==============================*/
+/==============================
+Category
+==============================/
 
 categoryButtons.forEach(button=>{
 
-    button.onclick=()=>{
+button.onclick=()=>{
 
-        categoryButtons.forEach(btn=>{
-            btn.classList.remove("active");
-        });
+categoryButtons.forEach(btn=>{
 
-        button.classList.add("active");
-
-        currentCategory = button.dataset.category;
-
-        applyFilters();
-
-    };
+btn.classList.remove("active");
 
 });
 
-/*==============================
- Favorite
-==============================*/
+button.classList.add("active");
+
+currentCategory=
+
+button.dataset.category;
+
+if(currentCategory==="all"){
+
+filteredFacts=[...funFacts];
+
+}else{
+
+filteredFacts=funFacts.filter(item=>  
+
+    item.category===currentCategory  
+
+);
+
+}
+
+if(showingFavorite){
+
+const favorites=getFavorites();  
+
+filteredFacts=filteredFacts.filter(item=>  
+
+    favorites.includes(item.id)  
+
+);
+
+}
+
+const keyword=
+
+searchInput.value
+
+.toLowerCase()
+
+.trim();
+
+if(keyword!=""){
+
+filteredFacts=
+
+filteredFacts.filter(item=>{
+
+return(
+
+item.title
+
+.toLowerCase()
+
+.includes(keyword)
+
+||
+
+item.description
+
+.toLowerCase()
+
+.includes(keyword)
+
+);
+
+});
+
+}
+
+if(showingFavorite){
+
+showFavorites();
+
+}else{
+
+renderGallery(filteredFacts);
+
+}
+
+};
+
+});
+
+/==============================
+Favorite
+==============================/
 
 function getFavorites(){
 
@@ -363,73 +381,85 @@ JSON.stringify(data)
 
 }
 
-
 function toggleFavorite(id){
 
-    let favorites = getFavorites();
+let favorites = getFavorites();  
 
-    if(favorites.includes(id)){
-        favorites = favorites.filter(item => item !== id);
-        showToast("Favorite dihapus");
-    }else{
-        favorites.push(id);
-        showToast("Ditambahkan ke Favorite");
-    }
+if(favorites.includes(id)){  
 
-    saveFavorites(favorites);
-    updateFavoriteCount();
+    favorites = favorites.filter(item => item !== id);  
 
-    applyFilters();
+    showToast("Favorite dihapus");  
+
+}else{  
+
+    favorites.push(id);  
+
+    showToast("Ditambahkan ke Favorite");  
+
+}  
+
+saveFavorites(favorites);  
+
+updateFavoriteCount();  
+
+if(showingFavorite){  
+
+    showFavorites();  
+
+}else{  
+
+    renderGallery(filteredFacts);  
+
+}
+
 }
 
 function updateFavoriteCount(){
 
-    if(!favoriteCount) return;
+if(!favoriteCount) return;  
 
-    favoriteCount.textContent = getFavorites().length;
+favoriteCount.textContent = getFavorites().length;
 
 }
 
 function showFavorites(){
 
-    showingFavorite = true;
+showingFavorite = true;  
 
-    favoriteFilter.classList.add("active");
+favoriteFilter.classList.add("active");  
 
-    applyFilters();
+searchInput.dispatchEvent(new Event("input"));
 
 }
 
 function showAllFacts(){
 
-    showingFavorite = false;
+showingFavorite = false;  
 
-    favoriteFilter.classList.remove("active");
+favoriteFilter.classList.remove("active");  
 
-    applyFilters();
+searchInput.dispatchEvent(new Event("input"));
 
 }
 
 favoriteFilter.onclick = () => {
 
-    if(showingFavorite){
+if(showingFavorite){  
 
-        showAllFacts();
+    showAllFacts();  
 
-    }else{
+}else{  
 
-        showFavorites();
+    showFavorites();  
 
-    }
+}
 
 };
 
-
-
- 
-/*==============================
- Update Favorite Icon
-==============================*/
+/==============================
+Update Favorite Icon
+==============================/
 
 function isFavorite(id){
 
@@ -439,22 +469,22 @@ return getFavorites()
 
 }
 
-/*==============================
- Start
-==============================*/
+/==============================
+Start
+==============================/
 
 loadFunFacts();
 updateFavoriteCount();
-/*=====================================================
- FunFact V4
- script.js
- Part 2
- Viewer
-======================================================*/
+/=====================================================
+FunFact V4
+script.js
+Part 2
+Viewer
+======================================================/
 
-/*==============================
- Viewer Elements
-==============================*/
+/==============================
+Viewer Elements
+==============================/
 
 const viewer =
 document.getElementById("viewer");
@@ -489,9 +519,9 @@ document.getElementById("shareButton");
 const favoriteButton =
 document.getElementById("favoriteButton");
 
-/*==============================
- Open Viewer
-==============================*/
+/==============================
+Open Viewer
+==============================/
 
 function openViewer(index){
 
@@ -505,9 +535,9 @@ document.body.style.overflow="hidden";
 
 }
 
-/*==============================
- Close Viewer
-==============================*/
+/==============================
+Close Viewer
+==============================/
 
 function closeViewerWindow(){
 
@@ -525,9 +555,9 @@ closeViewer.onclick=closeViewerWindow;
 
 viewerBackground.onclick=closeViewerWindow;
 
-/*==============================
- Update Viewer
-==============================*/
+/==============================
+Update Viewer
+==============================/
 
 function updateViewer(){
 
@@ -559,9 +589,9 @@ isFavorite(item.id)
 
 }
 
-/*==============================
- Next
-==============================*/
+/==============================
+Next
+==============================/
 
 function nextImage(){
 
@@ -577,9 +607,9 @@ updateViewer();
 
 }
 
-/*==============================
- Previous
-==============================*/
+/==============================
+Previous
+==============================/
 
 function previousImage(){
 
@@ -605,37 +635,37 @@ previousButton.onclick=
 
 previousImage;
 
-/*==============================
- Favorite
-==============================*/
+/==============================
+Favorite
+==============================/
 
 favoriteButton.onclick=()=>{
 
-    const item=filteredFacts[currentIndex];
+const item=filteredFacts[currentIndex];  
 
-    toggleFavorite(item.id);
+toggleFavorite(item.id);  
 
-    if(filteredFacts.length===0){
+if(filteredFacts.length===0){  
 
-        closeViewerWindow();
+    closeViewerWindow();  
 
-        return;
+    return;  
 
-    }
+}  
 
-    if(currentIndex>=filteredFacts.length){
+if(currentIndex>=filteredFacts.length){  
 
-        currentIndex=0;
+    currentIndex=0;  
 
-    }
+}  
 
-    updateViewer();
+updateViewer();
 
 };
 
-/*==============================
- Share
-==============================*/
+/==============================
+Share
+==============================/
 
 shareButton.onclick=
 
@@ -679,9 +709,9 @@ showToast(
 
 };
 
-/*==============================
- Keyboard
-==============================*/
+/==============================
+Keyboard
+==============================/
 
 document.addEventListener(
 
@@ -725,9 +755,9 @@ break;
 
 );
 
-/*==============================
- Swipe
-==============================*/
+/==============================
+Swipe
+==============================/
 
 let touchStartX=0;
 
@@ -781,9 +811,9 @@ previousImage();
 
 );
 
-/*==============================
- Double Tap Zoom
-==============================*/
+/==============================
+Double Tap Zoom
+==============================/
 
 let lastTap=0;
 
@@ -817,7 +847,7 @@ zoomScale=1;
 
 viewerImage.style.transform=
 
-`scale(${zoomScale})`;
+scale(${zoomScale});
 
 }
 
@@ -827,9 +857,9 @@ lastTap=now;
 
 );
 
-/*==============================
- Mouse Wheel Zoom
-==============================*/
+/==============================
+Mouse Wheel Zoom
+==============================/
 
 viewerImage.addEventListener(
 
@@ -859,15 +889,15 @@ zoomScale=5;
 
 viewerImage.style.transform=
 
-`scale(${zoomScale})`;
+scale(${zoomScale});
 
 }
 
 );
 
-/*==============================
- Random Button
-==============================*/
+/==============================
+Random Button
+==============================/
 
 const randomButton=
 
@@ -879,27 +909,27 @@ document.getElementById(
 
 randomButton.onclick=()=>{
 
-    if(filteredFacts.length===0){
+if(filteredFacts.length===0){  
 
-        showToast("Tidak ada data.");
+    showToast("Tidak ada data.");  
 
-        return;
+    return;  
 
-    }
+}  
 
-    const index=Math.floor(
+const index=Math.floor(  
 
-        Math.random()*filteredFacts.length
+    Math.random()*filteredFacts.length  
 
-    );
+);  
 
-    openViewer(index);
+openViewer(index);
 
 };
 
-/*==============================
- Back To Top
-==============================*/
+/==============================
+Back To Top
+==============================/
 
 const backTop=
 
@@ -949,16 +979,16 @@ behavior:"smooth"
 
 };
 
-/*=====================================================
- FunFact V4
- script.js
- Part 3
- Advanced Features
-======================================================*/
+/=====================================================
+FunFact V4
+script.js
+Part 3
+Advanced Features
+======================================================/
 
-/*==============================
- Image Preloader
-==============================*/
+/==============================
+Image Preloader
+==============================/
 
 function preloadImages(){
 
@@ -974,9 +1004,9 @@ img.src=item.image;
 
 window.addEventListener("load",preloadImages);
 
-/*==============================
- Lazy Animation Observer
-==============================*/
+/==============================
+Lazy Animation Observer
+==============================/
 
 const observer=
 
@@ -1030,9 +1060,9 @@ observeCards();
 
 };
 
-/*==============================
- Scroll Progress
-==============================*/
+/==============================
+Scroll Progress
+==============================/
 
 const progressBar=
 
@@ -1060,9 +1090,9 @@ percent+"%";
 
 });
 
-/*==============================
- Theme
-==============================*/
+/==============================
+Theme
+==============================/
 
 const themeButton=
 
@@ -1112,9 +1142,9 @@ dark?"☀":"🌙";
 
 loadTheme();
 
-/*==============================
- Copy Image Link
-==============================*/
+/==============================
+Copy Image Link
+==============================/
 
 async function copyImage(){
 
@@ -1148,9 +1178,9 @@ showToast(
 
 }
 
-/*==============================
- Long Press Download
-==============================*/
+/==============================
+Long Press Download
+==============================/
 
 let holdTimer;
 
@@ -1192,9 +1222,9 @@ holdTimer
 
 );
 
-/*==============================
- Auto Close Toast
-==============================*/
+/==============================
+Auto Close Toast
+==============================/
 
 let toastTimeout;
 
@@ -1222,9 +1252,9 @@ toast.classList.remove("show");
 
 }
 
-/*==============================
- Random Keyboard
-==============================*/
+/==============================
+Random Keyboard
+==============================/
 
 document.addEventListener(
 
@@ -1240,9 +1270,9 @@ randomButton.click();
 
 });
 
-/*==============================
- Online Offline
-==============================*/
+/==============================
+Online Offline
+==============================/
 
 window.addEventListener(
 
@@ -1276,9 +1306,9 @@ showToast(
 
 );
 
-/*==============================
- Install PWA
-==============================*/
+/==============================
+Install PWA
+==============================/
 
 let deferredPrompt;
 
@@ -1312,10 +1342,9 @@ deferredPrompt=null;
 
 }
 
-
-/*==============================
- Prevent Drag Image
-==============================*/
+/==============================
+Prevent Drag Image
+==============================/
 
 document
 
@@ -1327,9 +1356,9 @@ img.draggable=false;
 
 });
 
-/*==============================
- Escape Splash
-==============================*/
+/==============================
+Escape Splash
+==============================/
 
 window.addEventListener(
 
@@ -1345,9 +1374,9 @@ hideSplash();
 
 });
 
-/*==============================
- Console
-==============================*/
+/==============================
+Console
+==============================/
 
 console.log(
 
