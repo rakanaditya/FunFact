@@ -260,28 +260,38 @@ return card;
 ==============================*/
 
 searchInput.addEventListener("input", function(){
+searchInput.addEventListener("input", function(){
 
-    const keyword=this.value.toLowerCase().trim();
+    const keyword = this.value.toLowerCase().trim();
 
-    filteredFacts=funFacts.filter(item=>{
+    filteredFacts = funFacts.filter(item=>{
 
-        return(
+        const match =
+
             item.title.toLowerCase().includes(keyword) ||
+
             item.category.toLowerCase().includes(keyword) ||
-            item.description.toLowerCase().includes(keyword)
-        );
+
+            item.description.toLowerCase().includes(keyword);
+
+        if(!match) return false;
+
+        if(currentCategory!=="all" &&
+           item.category!==currentCategory){
+
+            return false;
+
+        }
+
+        if(showingFavorite){
+
+            return getFavorites().includes(item.id);
+
+        }
+
+        return true;
 
     });
-
-    if(currentCategory!=="all"){
-
-        filteredFacts=filteredFacts.filter(item=>
-
-            item.category===currentCategory
-
-        );
-
-    }
 
     renderGallery(filteredFacts);
 
@@ -457,37 +467,25 @@ function toggleFavorite(id){
 
 function updateFavoriteCount(){
 
-    const total = getFavorites().length;
+    if(!favoriteCount) return;
 
-    favoriteCount.textContent = total;
+    favoriteCount.textContent = getFavorites().length;
 
 }
 
 function showFavorites(){
 
-    showingFavorite=true;
+    showingFavorite = true;
 
     favoriteFilter.classList.add("active");
 
-    const favorites=getFavorites();
-
-    const keyword=searchInput.value.toLowerCase().trim();
-
-    filteredFacts=funFacts.filter(item=>{
-
-        return favorites.includes(item.id) &&
-
-        item.title.toLowerCase().includes(keyword);
-
-    });
-
-    renderGallery(filteredFacts);
+    searchInput.dispatchEvent(new Event("input"));
 
 }
 
 function showAllFacts(){
 
-    showingFavorite=false;
+    showingFavorite = false;
 
     favoriteFilter.classList.remove("active");
 
@@ -697,9 +695,17 @@ favoriteButton.onclick=()=>{
 
     toggleFavorite(item.id);
 
-    if(showingFavorite){
+    if(filteredFacts.length===0){
 
-        showFavorites();
+        closeViewerWindow();
+
+        return;
+
+    }
+
+    if(currentIndex>=filteredFacts.length){
+
+        currentIndex=0;
 
     }
 
@@ -953,19 +959,21 @@ document.getElementById(
 
 randomButton.onclick=()=>{
 
-const index=
+    if(filteredFacts.length===0){
 
-Math.floor(
+        showToast("Tidak ada data.");
 
-Math.random()
+        return;
 
-*
+    }
 
-filteredFacts.length
+    const index=Math.floor(
 
-);
+        Math.random()*filteredFacts.length
 
-openViewer(index);
+    );
+
+    openViewer(index);
 
 };
 
