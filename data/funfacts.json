@@ -13,11 +13,20 @@
     "category": "Sad",
     "description": "your face is ugly in the eyes of others"
   },
-  {
+
+   {
     "id": 3,
+    "title": "Your person perfect me",
+    "image": "https://i.imgur.com/oQPBC9C.png",
+    "category": "Happy",
+    "description": "Orang yang sempurna untukku"
+  },
+  
+  {
+    "id": 4,
     "title": "disini tutup mukadi sana cari muka jelas beda kelas",
     "image": "https://i.imgur.com/P5LEOcB.png",
     "category": "Sad",
-    "description": "kelazz king"
+    "description": "kelazz king",
   }
 ]
