@@ -259,67 +259,33 @@ return card;
  Search
 ==============================*/
 
-searchInput
+searchInput.addEventListener("input", function(){
 
-.addEventListener(
+    const keyword=this.value.toLowerCase().trim();
 
-"input",
+    filteredFacts=funFacts.filter(item=>{
 
-function(){
+        return(
+            item.title.toLowerCase().includes(keyword) ||
+            item.category.toLowerCase().includes(keyword) ||
+            item.description.toLowerCase().includes(keyword)
+        );
 
-const keyword =
+    });
 
-this.value
+    if(currentCategory!=="all"){
 
-.toLowerCase()
+        filteredFacts=filteredFacts.filter(item=>
 
-.trim();
+            item.category===currentCategory
 
-filteredFacts =
+        );
 
-funFacts.filter(item=>{
+    }
 
-return(
-
-item.title
-
-.toLowerCase()
-
-.includes(keyword)
-
-||
-
-item.category
-
-.toLowerCase()
-
-.includes(keyword)
-
-||
-
-item.description
-
-.toLowerCase()
-
-.includes(keyword)
-
-);
+    renderGallery(filteredFacts);
 
 });
-
-if(currentCategory!=="all"){
-
-filteredFacts=
-
-filteredFacts.filter(item=>
-
-item.category===currentCategory
-
-);
-
-}
-
-);
 
 /*==============================
  Category
@@ -345,7 +311,22 @@ if(currentCategory==="all"){
 
 filteredFacts=[...funFacts];
 
-}else{
+}
+
+if(showingFavorite){
+
+    const favorites=getFavorites();
+
+    filteredFacts=filteredFacts.filter(item=>
+
+        favorites.includes(item.id)
+
+    );
+
+}
+
+
+else{
 
 filteredFacts=
 
@@ -395,7 +376,15 @@ item.description
 
 }
 
-renderGallery(filteredFacts);
+if(showingFavorite){
+
+    showFavorites();
+
+}else{
+
+    renderGallery(filteredFacts);
+
+}
 
 };
 
@@ -476,29 +465,33 @@ function updateFavoriteCount(){
 
 function showFavorites(){
 
-    showingFavorite = true;
-
-    const favorites = getFavorites();
-
-    filteredFacts = funFacts.filter(item =>
-        favorites.includes(item.id)
-    );
-
-    renderGallery(filteredFacts);
+    showingFavorite=true;
 
     favoriteFilter.classList.add("active");
+
+    const favorites=getFavorites();
+
+    const keyword=searchInput.value.toLowerCase().trim();
+
+    filteredFacts=funFacts.filter(item=>{
+
+        return favorites.includes(item.id) &&
+
+        item.title.toLowerCase().includes(keyword);
+
+    });
+
+    renderGallery(filteredFacts);
 
 }
 
 function showAllFacts(){
 
-    showingFavorite = false;
-
-    filteredFacts = [...funFacts];
-
-    renderGallery(filteredFacts);
+    showingFavorite=false;
 
     favoriteFilter.classList.remove("active");
+
+    searchInput.dispatchEvent(new Event("input"));
 
 }
 
