@@ -1482,13 +1482,13 @@ async function checkUpdate() {
 
                 showToast("Success");
 
-            },1000);
+            },30000); /* Notif succes jika ada update 30 detik */
 
             setTimeout(() => {
 
                 location.reload();
 
-            },2000);
+            },2000); /* Reload website 2 detik*/
 
         }
 
@@ -1500,7 +1500,7 @@ async function checkUpdate() {
 
 }
 
-setInterval(checkUpdate,10000);
+setInterval(checkUpdate,10000);/* Cek update*/
   
 /*==============================  
  Console  
