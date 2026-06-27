@@ -63,6 +63,14 @@
     "description": "Aku ketia bertemu seseorang yang mengerti perasaanku"
   },
   {
+    "id": 10,
+    "title": "Aku hanya menemani",
+    "image": "https://i.imgur.com/BMHohFe.png",
+    "category": ["Sad", "Anime"],
+    "description": "Aku hanya menemani, jika bukan aku yang dipilih ya sudah"
+  },
+  
+  {
     "id": 88,
     "title": "disini tutup muka di sana cari muka jelas beda kelas",
     "image": "https://i.imgur.com/P5LEOcB.png",
