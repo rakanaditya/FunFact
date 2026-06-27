@@ -356,9 +356,17 @@ if(showingFavorite){
     }else{
 
         filteredFacts =
-funFacts.filter(item =>
-    item.category.includes(currentCategory)
-);
+funFacts.filter(item=>{
+
+    if(Array.isArray(item.category)){
+
+        return item.category.includes(currentCategory);
+
+    }
+
+    return item.category===currentCategory;
+
+});
 
     }
 
@@ -554,14 +562,17 @@ document.getElementById("viewer");
 const viewerBackground =  
 document.querySelector(".viewerBackground");  
   
-const viewerImage =  
-document.getElementById("viewerImage");  
-  
-const viewerTitle =  
-document.getElementById("viewerTitle");  
-  
-const viewerDescription =  
-document.getElementById("viewerDescription");  
+const viewerImage =
+document.getElementById("viewerImage");
+
+const viewerTitle =
+document.getElementById("viewerTitle");
+
+const viewerCategory =
+document.getElementById("viewerCategory");
+
+const viewerDescription =
+document.getElementById("viewerDescription");
   
 const closeViewer =  
 document.getElementById("closeViewer");  
@@ -581,11 +592,6 @@ document.getElementById("shareButton");
 const favoriteButton =  
 document.getElementById("favoriteButton");  
 
-const viewerTitle =
-document.getElementById("viewerTitle");
-
-const viewerCategory =
-document.getElementById("viewerCategory");
   
 /*==============================  
  Open Viewer  
