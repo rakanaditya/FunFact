@@ -4,7 +4,7 @@
  Version 4.0.0
 ======================================================*/
 
-const CACHE_NAME = "funfact-v4-cache-v4.4";
+const CACHE_NAME = "funfact-v4-cache-v4.5";
 
 const STATIC_CACHE = [
 /*aktif ini profesional*/
@@ -75,46 +75,74 @@ self.addEventListener("activate", event=>{
  Fetch
 ==================================*/
 
-self.addEventListener("fetch", event=>{
+self.addEventListener("fetch", event => {
 
+    if (event.request.method !== "GET") return;
+
+    // Selalu ambil data terbaru untuk funfacts.json
     if (event.request.url.includes("funfacts.json")) {
 
+        event.respondWith(
+
+            fetch(event.request)
+
+                .then(response => {
+
+                    const clone = response.clone();
+
+                    caches.open(CACHE_NAME).then(cache => {
+                        cache.put(event.request, clone);
+                    });
+
+                    return response;
+
+                })
+
+                .catch(() => {
+
+                    return caches.match(event.request);
+
+                })
+
+        );
+
+        return;
+    }
+
+    // Cache First untuk file lainnya
     event.respondWith(
 
-        fetch(event.request)
+        caches.match(event.request)
 
-        .then(response => {
+            .then(cache => {
 
-            const clone = response.clone();
-
-            caches.open(CACHE_NAME).then(cache => {
-
-                cache.put(event.request, clone);
-
-            });
-
-            return response;
-
-        })
-
-        .catch(() => caches.match(event.request))
-
-    );
-
-    return;
-
-    }
-            .catch(()=>{
-
-                if(event.request.destination==="image"){
-
-                    return caches.match("./images/logo.png");
-
+                if (cache) {
+                    return cache;
                 }
 
-            });
+                return fetch(event.request)
 
-        })
+                    .then(response => {
+
+                        const clone = response.clone();
+
+                        caches.open(CACHE_NAME).then(cache => {
+                            cache.put(event.request, clone);
+                        });
+
+                        return response;
+
+                    })
+
+                    .catch(() => {
+
+                        if (event.request.destination === "image") {
+                            return caches.match("./images/logo.png");
+                        }
+
+                    });
+
+            })
 
     );
 
