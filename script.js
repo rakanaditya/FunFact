@@ -267,19 +267,16 @@ searchInput.addEventListener("input", function(){
   
     filteredFacts = funFacts.filter(item=>{  
   
-        const match =  
-  
-            item.title.toLowerCase().includes(keyword) ||  
-  
-            (
-Array.isArray(item.category)
-? item.category.join(" ")
-: item.category
-)
-.toLowerCase()
-.includes(keyword)
-  
-            item.description.toLowerCase().includes(keyword);  
+        const match =
+    item.title.toLowerCase().includes(keyword) ||
+
+    (
+        Array.isArray(item.category)
+            ? item.category.join(" ")
+            : item.category
+    ).toLowerCase().includes(keyword) ||
+
+    item.description.toLowerCase().includes(keyword);  
   
         if(!match) return false;  
   
@@ -377,29 +374,27 @@ searchInput.value
   
 if(keyword!=""){  
   
-filteredFacts=  
-  
-filteredFacts.filter(item=>{  
-  
-return(  
-  
-item.title  
-  
-.toLowerCase()  
-  
-.includes(keyword)  
-  
-||  
-  
-item.description  
-  
-.toLowerCase()  
-  
-.includes(keyword)  
-  
-);  
-  
-});  
+filteredFacts = filteredFacts.filter(item=>{
+
+    return(
+
+        item.title.toLowerCase().includes(keyword)
+
+        ||
+
+        (
+            Array.isArray(item.category)
+                ? item.category.join(" ")
+                : item.category
+        ).toLowerCase().includes(keyword)
+
+        ||
+
+        item.description.toLowerCase().includes(keyword)
+
+    );
+
+});
   
 }  
   
