@@ -43,13 +43,27 @@
   },
   {
     "id": 7,
+    "title": "Menolak orang itu mudah",
+    "image": "https://i.imgur.com/P5LEOcB.png",
+    "category": ["Sad", "Anime"],
+    "description": "Menolak orang itu mudah ketika hatimu mencintai satu orang"
+  },
+   {
+    "id": 8,
+    "title": "disini tutup muka di sana cari muka jelas beda kelas",
+    "image": "https://i.imgur.com/WfZQ5u4.png",
+    "category": ["Sad", "Anime"],
+    "description": "kelazz king"
+  },
+  {
+    "id": 88,
     "title": "disini tutup muka di sana cari muka jelas beda kelas",
     "image": "https://i.imgur.com/P5LEOcB.png",
     "category": ["Sad", "Anime"],
     "description": "kelazz king"
   },
   {
-    "id": 8,
+    "id": 89,
     "title": "Marin Kitagawa",
     "image": "https://i.imgur.com/6wfNEw2.jpeg",
     "category": ["Anime", "Happy"],
