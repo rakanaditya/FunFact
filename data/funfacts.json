@@ -48,19 +48,19 @@
     "category": ["Sad", "Anime"],
     "description": "Menolak orang itu mudah ketika hatimu mencintai satu orang"
   },
-   {
-    "id": 8,
-    "title": "disini tutup muka di sana cari muka jelas beda kelas",
-    "image": "https://i.imgur.com/WfZQ5u4.png",
-    "category": ["Sad", "Anime"],
-    "description": "kelazz king"
-  },
   {
-    "id": 9,
+    "id": 8,
     "title": "Andai yang banyak itu uang, bukan pikiran  ",
     "image": "https://i.imgur.com/mz4h6av.png",
     "category": ["Sad", "Anime"],
     "description": "-"
+  },
+  {
+    "id": 9,
+    "title": "Aku ketika bertemu seseorang",
+    "image": "https://i.imgur.com/8BDpFjC.png",
+    "category": ["Sad", "Anime"],
+    "description": "Aku ketia bertemu seseorang yang mengerti perasaanku"
   },
   {
     "id": 88,
