@@ -162,11 +162,13 @@ ${item.title}
   
 </div>  
   
-<div class="cardCategory">  
-  
-${item.category}  
-  
-</div>  
+<div class="cardCategory">
+
+${Array.isArray(item.category)
+? item.category.join(" • ")
+: item.category}
+
+</div>
   
 </div>  
   
@@ -269,18 +271,34 @@ searchInput.addEventListener("input", function(){
   
             item.title.toLowerCase().includes(keyword) ||  
   
-            item.category.toLowerCase().includes(keyword) ||  
+            (
+Array.isArray(item.category)
+? item.category.join(" ")
+: item.category
+)
+.toLowerCase()
+.includes(keyword)
   
             item.description.toLowerCase().includes(keyword);  
   
         if(!match) return false;  
   
-        if(
-    currentCategory !== "all" &&
-    !item.category.includes(currentCategory)
-){
-    return false;
-        }
+        if(currentCategory!=="all"){
+
+    const matchCategory =
+    Array.isArray(item.category)
+
+    ? item.category.includes(currentCategory)
+
+    : item.category===currentCategory;
+
+    if(!matchCategory){
+
+        return false;
+
+    }
+
+             }
   
         if(showingFavorite){  
   
@@ -567,6 +585,12 @@ document.getElementById("shareButton");
   
 const favoriteButton =  
 document.getElementById("favoriteButton");  
+
+const viewerTitle =
+document.getElementById("viewerTitle");
+
+const viewerCategory =
+document.getElementById("viewerCategory");
   
 /*==============================  
  Open Viewer  
@@ -615,12 +639,17 @@ const item=
 filteredFacts[currentIndex];  
   
 if(!item)return;  
-  
-viewerImage.src=item.image;  
-  
-viewerTitle.textContent=item.title;  
-  
-viewerDescription.textContent=item.description;  
+    
+viewerImage.src = item.image;
+
+viewerTitle.textContent = item.title;
+
+viewerCategory.textContent =
+Array.isArray(item.category)
+    ? item.category.join(" • ")
+    : item.category;
+
+viewerDescription.textContent = item.description;
   
 downloadButton.href=item.image;  
   
