@@ -10,12 +10,12 @@ const STATIC_CACHE = [
 /*aktif ini profesional*/
 
  
-/* "./",
+   "./",
    "./index.html", 
     "./style.css",
     "./script.js",
     "./manifest.json", 
-    "./data/funfacts.json",  */
+    "./data/funfacts.json",  
 
     "./images/logo.png",
 
@@ -77,42 +77,33 @@ self.addEventListener("activate", event=>{
 
 self.addEventListener("fetch", event=>{
 
-    if(event.request.method!=="GET"){
-
-        return;
-
-    }
+    if (event.request.url.includes("funfacts.json")) {
 
     event.respondWith(
 
-        caches.match(event.request)
+        fetch(event.request)
 
-        .then(cache=>{
+        .then(response => {
 
-            if(cache){
+            const clone = response.clone();
 
-                return cache;
+            caches.open(CACHE_NAME).then(cache => {
 
-            }
+                cache.put(event.request, clone);
 
-            return fetch(event.request)
+            });
 
-            .then(response=>{
+            return response;
 
-                const clone=response.clone();
+        })
 
-                caches.open(CACHE_NAME)
+        .catch(() => caches.match(event.request))
 
-                .then(cache=>{
+    );
 
-                    cache.put(event.request,clone);
+    return;
 
-                });
-
-                return response;
-
-            })
-
+    }
             .catch(()=>{
 
                 if(event.request.destination==="image"){
