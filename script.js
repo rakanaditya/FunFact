@@ -42,7 +42,12 @@ document.getElementById("favoriteCount");
   
 async function loadFunFacts() {
     try {
-        const response = await fetch("data/funfacts.json");
+        const response = await fetch(
+    "data/funfacts.json?time=" + Date.now(),
+    {
+        cache:"no-store"
+    }
+    );
 
         console.log("Status:", response.status);
 
@@ -1452,51 +1457,50 @@ hideSplash();
  Auto Update FunFacts
 ==============================*/
 
-let currentVersion = "";
+let lastData = "";
 
 async function checkUpdate() {
 
     try {
 
-        const response = await fetch(
-            "data/funfacts.json?t=" + Date.now(),
-            { cache: "no-store" }
-        );
+        const response = await fetch("data/funfacts.json?time=" + Date.now(), {
+            cache: "no-store"
+        });
 
         const text = await response.text();
 
-        if (!currentVersion) {
-            currentVersion = text;
+        if (lastData === "") {
+            lastData = text;
             return;
         }
 
-        if (currentVersion !== text) {
+        if (text !== lastData) {
 
-            showToast("🔄 Checking Update...");
-
-            setTimeout(() => {
-
-                showToast("✅ Update Success!");
-
-            }, 1200);
+            showToast("Checking Update...");
 
             setTimeout(() => {
 
-                location.reload(true);
+                showToast("Success");
 
-            }, 2800);
+            },1000);
+
+            setTimeout(() => {
+
+                location.reload();
+
+            },2000);
 
         }
 
-    } catch (e) {
+    } catch(e) {
 
-        console.log("Update Check Failed");
+        console.log(e);
 
     }
 
 }
 
-setInterval(checkUpdate, 10000);
+setInterval(checkUpdate,10000);
   
 /*==============================  
  Console  
