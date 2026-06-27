@@ -90,6 +90,24 @@
     "image": "https://i.imgur.com/rMW7MjN.png",
     "category": ["Happy", "Anime"],
     "description": "Cuma suka ngelawak, kalau suka kamu atut di tolak. Rawrrrrrrrr"
+  },
+  {
+    "id": 14,
+    "title": "Melepaskanmu itu bukan kemauan diriku",
+    "image": "https://i.imgur.com/np3yF8s.png",
+    "category": ["Sad", "Anime"],
+    "description": "Melepaskanmu itu bukan kemauan diriku, hanya saja diriku mengalah dengan seseorang yang telah membuatmu bahagia melebihi diriku."
+  },
+  {
+    "id": 14,
+    "title": "Seorang laki-laki dengan seluruh kenangannya",
+    "image": "https://i.imgur.com/bL96kQH.png",
+    "category": ["Sad", "Anime"],
+    "description": "-"
   }
+
+
+  
+  
   
 ]
