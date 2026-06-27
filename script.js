@@ -254,12 +254,6 @@ return card;
 }  
   
   
-  function getCategoryText(category){
-    return Array.isArray(category)
-        ? category.join(" ")
-        : category;
-  }
-  
   
 /*==============================  
  Search  
