@@ -1447,6 +1447,56 @@ hideSplash();
 },500);  
   
 });  
+
+/*==============================
+ Auto Update FunFacts
+==============================*/
+
+let currentVersion = "";
+
+async function checkUpdate() {
+
+    try {
+
+        const response = await fetch(
+            "data/funfacts.json?t=" + Date.now(),
+            { cache: "no-store" }
+        );
+
+        const text = await response.text();
+
+        if (!currentVersion) {
+            currentVersion = text;
+            return;
+        }
+
+        if (currentVersion !== text) {
+
+            showToast("🔄 Checking Update...");
+
+            setTimeout(() => {
+
+                showToast("✅ Update Success!");
+
+            }, 1200);
+
+            setTimeout(() => {
+
+                location.reload(true);
+
+            }, 2800);
+
+        }
+
+    } catch (e) {
+
+        console.log("Update Check Failed");
+
+    }
+
+}
+
+setInterval(checkUpdate, 10000);
   
 /*==============================  
  Console  
