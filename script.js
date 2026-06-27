@@ -40,32 +40,28 @@ document.getElementById("favoriteCount");
  Load JSON  
 ==============================*/  
   
-async function loadFunFacts(){  
-  
-try{  
-  
-const response =  
-await fetch("data/funfacts.json");  
-  
-funFacts =  
-await response.json();  
-  
-filteredFacts =  
-[...funFacts];  
-  
-renderGallery(filteredFacts);  
-updateFavoriteCount();  
-hideSplash();  
-  
-}catch(error){  
-  
-console.error(error);  
-  
-showToast("Gagal memuat data.");  
-  
-}  
-  
-}  
+async function loadFunFacts() {
+    try {
+        const response = await fetch("data/funfacts.json");
+
+        console.log("Status:", response.status);
+
+        const text = await response.text();
+        console.log(text);
+
+        funFacts = JSON.parse(text);
+
+        filteredFacts = [...funFacts];
+
+        renderGallery(filteredFacts);
+        updateFavoriteCount();
+        hideSplash();
+
+    } catch (error) {
+        console.error(error);
+        showToast("Gagal memuat data.");
+    }
+}
   
 /*==============================  
  Hide Splash  
