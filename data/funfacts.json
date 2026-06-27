@@ -6,57 +6,50 @@
 ‎    "category": ["Sad","Anime"],
 ‎    "description": "Anime"
 ‎  },
-‎
-‎  {
+  {
 ‎    "id": 2,
 ‎    "title": "Your face Ugly",
 ‎    "image": "https://i.imgur.com/oQPBC9C.png",
 ‎    "category": ["Sad","Anime"],
 ‎    "description": "your face is ugly in the eyes of others"
 ‎  },
-‎
-‎  {
+  {
 ‎    "id": 3,
 ‎    "title": "Your person perfect me",
 ‎    "image": "https://i.imgur.com/cd2u04X.png",
 ‎    "category": ["Happy","Anime"],
 ‎    "description": "Orang yang sempurna untukku"
 ‎  },
-‎
-‎{
+  ‎{
 ‎    "id": 4,
 ‎    "title": "Laki-laki tulis tidak gila wanita",
 ‎    "image": "https://i.imgur.com/dskfVV3.png",
 ‎    "category": ["Sad","Anime"],
 ‎    "description": "Laki-laki tulus tidak gila wanita, tapi bisa gila karena satu wanita mana gak nyata lagi."
 ‎  },
-‎
-‎{
+  ‎{
 ‎    "id": 5,
 ‎    "title": "Ketika wanita jatuh cinta",
 ‎    "image": "https://i.imgur.com/we633Cm.png",
 ‎    "category": ["Happy","Anime"],
 ‎    "description": "Ketika wanita jatuh cinta, Dia akan menilai sang pria."
 ‎  },
-‎
-‎{
+  {
 ‎    "id": 6,
 ‎    "title": "Sendirian akan terasa menyenangkan",
 ‎    "image": "https://i.imgur.com/e8onCti.png",
 ‎    "category": ["Sad","Anime"],
 ‎    "description": "Sendirian akan terasa menyenangkan kalau kita tahu cara menikmati waktu"
 ‎  },
-‎  
 ‎  {
-‎    "id": 88,
+‎    "id": 7,
 ‎    "title": "disini tutup muka di sana cari muka jelas beda kelas",
 ‎    "image": "https://i.imgur.com/P5LEOcB.png",
 ‎    "category": "Sad",
 ‎    "description": "kelazz king"
 ‎  },
-‎
-‎    {
-‎    "id": 89,
+‎  {
+‎    "id": 8,
 ‎    "title": "Marin Kitagawa",
 ‎    "image": "https://i.imgur.com/6wfNEw2.jpeg",
 ‎    "category": "Anime",
