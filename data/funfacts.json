@@ -83,5 +83,13 @@
     "image": "https://i.imgur.com/Iag42NO.png",
     "category": ["Sad", "Anime"],
     "description": "Aku ketika melihat dia, dan dia melihat ke arahku. Dia terlihat seperti membenci ku."
+  },
+  {
+    "id": 13,
+    "title": "Cuma suka ngelawak",
+    "image": "https://i.imgur.com/rMW7MjN.png",
+    "category": ["Happy", "Anime"],
+    "description": "Cuma suka ngelawak, kalau suka kamu atut di tolak. Rawrrrrrrrr"
   }
+  
 ]
