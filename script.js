@@ -275,12 +275,12 @@ searchInput.addEventListener("input", function(){
   
         if(!match) return false;  
   
-        if(currentCategory!=="all" &&  
-           item.category!==currentCategory){  
-  
-            return false;  
-  
-        }  
+        if(
+    currentCategory !== "all" &&
+    !item.category.includes(currentCategory)
+){
+    return false;
+        }
   
         if(showingFavorite){  
   
@@ -340,9 +340,10 @@ if(showingFavorite){
 
     }else{
 
-        filteredFacts=funFacts.filter(item=>
-            item.category===currentCategory
-        );
+        filteredFacts =
+funFacts.filter(item =>
+    item.category.includes(currentCategory)
+);
 
     }
 
