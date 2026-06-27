@@ -40,6 +40,14 @@
 
 --transition:.30s ease;
 
+.viewerCategory{
+    color:#ff9800;
+    font-size:14px;
+    font-weight:600;
+    margin:6px 0 10px;
+}
+
+   
 }
 
 /* ===========================
