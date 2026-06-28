@@ -99,13 +99,20 @@
     "description": "Melepaskanmu itu bukan kemauan diriku, hanya saja diriku mengalah dengan seseorang yang telah membuatmu bahagia melebihi diriku."
   },
   {
-    "id": 14,
+    "id": 15,
     "title": "Seorang laki-laki dengan seluruh kenangannya",
     "image": "https://i.imgur.com/bL96kQH.png",
     "category": ["Sad", "Anime"],
     "description": "-"
-  }
-
+  },
+  {
+    "id": 16,
+    "title": "Elu yang sehabis bangun dari mimpi",
+    "image": "https://i.imgur.com/9W1Hs3S.png",
+    "category": ["Sad", "Anime"],
+    "description": "-"
+}
+  
 
   
   
