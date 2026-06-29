@@ -1488,7 +1488,7 @@ async function checkUpdate() {
 
                 location.reload();
 
-            },2000); /* Reload website 2 detik*/
+            },30000); /* Reload website 30 detik*/
 
         }
 
