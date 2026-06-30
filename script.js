@@ -627,17 +627,25 @@ document.body.style.overflow="hidden";
  Close Viewer  
 ==============================*/  
   
-function closeViewerWindow(){  
-  
-viewer.classList.remove("show");  
-  
-document.body.style.overflow="";  
-  
-viewerImage.style.transform="scale(1)";  
-  
-zoomScale=1;  
-  
-}  
+function closeViewerWindow(){
+
+    viewer.classList.remove("show");
+
+    document.body.style.overflow = "";
+
+    viewerImage.style.transform = "scale(1)";
+
+    zoomScale = 1;
+
+    viewerVideo.pause();
+    viewerVideo.currentTime = 0;
+    viewerVideo.removeAttribute("src");
+    viewerVideo.load();
+
+    viewerVideo.style.display = "none";
+    viewerImage.style.display = "block";
+
+} 
   
 closeViewer.onclick=closeViewerWindow;  
   
