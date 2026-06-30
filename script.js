@@ -67,6 +67,20 @@ async function loadFunFacts() {
         showToast("Gagal memuat data.");
     }
 }
+
+const viewerOpen = localStorage.getItem("viewerOpen");
+
+if(viewerOpen === "true"){
+
+    const index = Number(localStorage.getItem("viewerIndex") || 0);
+
+    if(index < filteredFacts.length){
+
+        openViewer(index);
+
+    }
+
+}
   
 /*==============================  
  Hide Splash  
@@ -641,6 +655,8 @@ function closeViewerWindow(){
         viewerVideo.pause();
         viewerVideo.currentTime = 0;
     }
+    localStorage.removeItem("viewerOpen");
+    localStorage.removeItem("viewerIndex");
 
 }
   
@@ -1551,6 +1567,15 @@ async function checkUpdate() {
 
             }, 5000); /* Notif succes jika ada update 30 detik */
 
+
+const item = filteredFacts[currentIndex];
+
+localStorage.setItem("viewerOpen", viewer.classList.contains("show"));
+
+if(item){
+    localStorage.setItem("viewerIndex", currentIndex);
+}
+         
             setTimeout(() => {
 
                 location.reload();
