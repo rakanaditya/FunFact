@@ -145,15 +145,29 @@ card.innerHTML=
   
 `  
   
-<img  
-  
-loading="lazy"  
-  
-src="${item.image}"  
-  
-alt="${item.title}"  
-  
->  
+${
+item.type === "video"
+?
+`
+<video
+loading="lazy"
+muted
+loop
+playsinline
+preload="metadata">
+
+<source src="${item.image}" type="video/mp4">
+
+</video>
+`
+:
+`
+<img
+loading="lazy"
+src="${item.image}"
+alt="${item.title}">
+`
+}  
   
 <div class="cardOverlay">  
   
@@ -217,13 +231,11 @@ ${isFavorite(item.id) ? "❤" : "♡"}
   
 card  
   
-.querySelector("img")  
-  
-.onclick=()=>{  
-  
-openViewer(index);  
-  
-};  
+const media = card.querySelector("img, video");
+
+media.onclick = () => {
+    openViewer(index);
+}; 
   
 card  
   
@@ -564,6 +576,9 @@ document.querySelector(".viewerBackground");
 const viewerImage =
 document.getElementById("viewerImage");
 
+const viewerVideo =
+document.getElementById("viewerVideo");
+
 const viewerTitle =
 document.getElementById("viewerTitle");
 
@@ -640,7 +655,29 @@ filteredFacts[currentIndex];
   
 if(!item)return;  
     
-viewerImage.src = item.image;
+if(item.type === "video"){
+
+    viewerImage.style.display = "none";
+
+    viewerVideo.style.display = "block";
+
+    viewerVideo.src = item.image;
+
+    viewerVideo.load();
+
+}else{
+
+    viewerVideo.pause();
+
+    viewerVideo.currentTime = 0;
+
+    viewerVideo.style.display = "none";
+
+    viewerImage.style.display = "block";
+
+    viewerImage.src = item.image;
+
+}
 
 viewerTitle.textContent = item.title;
 
