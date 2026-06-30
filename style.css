@@ -1053,7 +1053,7 @@ Viewer Content
 
 position:relative;
 
-z-index:2;
+z-index:3;
 
 max-width:1100px;
 
@@ -1230,7 +1230,8 @@ Close Button
 =========================== */
 
 .close{
-
+z-index: 99999;
+   
 position:absolute;
 
 top:15px;
@@ -1376,8 +1377,6 @@ box-shadow:var(--shadow);
 opacity:0;
 
 transition:.3s;
-
-z-index:999999;
 
 }
 
