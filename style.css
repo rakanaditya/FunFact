@@ -1069,6 +1069,11 @@ animation:viewerZoom .25s ease;
 
 }
 
+#viewerVideo{
+    position: relative;
+    z-index: 1;
+}
+
 @keyframes viewerZoom{
 
 from{
@@ -1232,9 +1237,9 @@ Close Button
 
 position:absolute;
 
-top:18px;
+top:15px;
 
-right:18px;
+right:15px;
 
 width:48px;
 
@@ -1249,6 +1254,8 @@ color:white;
 font-size:22px;
 
 backdrop-filter:blur(8px);
+
+z-index: 99999;
 
 }
 
