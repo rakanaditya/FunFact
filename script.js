@@ -641,8 +641,7 @@ function closeViewerWindow(){
     viewerVideo.currentTime = 0;
     viewerVideo.removeAttribute("src");
     viewerVideo.load();
-
-    viewerVideo.style.display = "none";
+ 
     viewerImage.style.display = "block";
 
 } 
