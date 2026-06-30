@@ -1230,34 +1230,30 @@ Close Button
 =========================== */
 
 .close{
-z-index: 99999;
-   
-position:absolute;
+    position: absolute;
+    top: 16px;
+    right: 16px;
 
-top:30px;
+    width: 48px;
+    height: 48px;
 
-right:30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-width:48px;
+    border-radius: 50%;
+    background: rgba(0,0,0,.45);
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 99999;
 
-height:48px;
-
-border-radius:50%;
-
-background:rgba(255,255,255,.15);
-
-color:white;
-
-font-size:22px;
-
-backdrop-filter:blur(8px);
-
+    transition: .25s;
 }
 
 .close:hover{
-
-transform:rotate(90deg);
-
+    background: rgba(0,0,0,.7);
+    transform: rotate(90deg) scale(1.05);
 }
 
 /* =====================================================
