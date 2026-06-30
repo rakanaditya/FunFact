@@ -590,6 +590,9 @@ document.getElementById("viewerDescription");
   
 const closeViewer =  
 document.getElementById("closeViewer");  
+
+const closeVideo =
+document.getElementById("closeVideo");
   
 const previousButton =  
 document.getElementById("previousButton");  
@@ -647,6 +650,15 @@ function closeViewerWindow(){
 closeViewer.onclick=closeViewerWindow;  
   
 viewerBackground.onclick=closeViewerWindow;  
+
+closeVideo.onclick = () => {
+
+    viewerVideo.pause();
+    viewerVideo.currentTime = 0;
+
+    closeViewerWindow();
+
+};
   
 /*==============================  
  Update Viewer  
@@ -669,8 +681,13 @@ if (isVideo) {
      // Video tampil
     viewerVideo.style.display = "block";
 
+    // Video close
+    closeVideo.style.display = "block";
+ 
     // Gambar disembunyikan
     viewerImage.style.display = "none";
+
+ 
 
     // Ganti source hanya jika berbeda
     if (viewerVideo.src !== item.image) {
@@ -695,10 +712,14 @@ if (isVideo) {
  
     // Sembunyikan video
     viewerVideo.style.display = "none";
+ // Close video
+   closeVideo.style.display = "none";
 
     viewerImage.src = item.image;
 
 }
+
+ 
 
 viewerTitle.textContent = item.title;
 
@@ -724,6 +745,8 @@ isFavorite(item.id)
 "♡ Favorite";  
   
 }  
+
+
   
 /*==============================  
  Next  
