@@ -666,11 +666,11 @@ const isVideo =
 
 if (isVideo) {
 
-    // Sembunyikan gambar
-    viewerImage.style.display = "none";
-
-    // Tampilkan video
+     // Video tampil
     viewerVideo.style.display = "block";
+
+    // Gambar disembunyikan
+    viewerImage.style.display = "none";
 
     // Ganti source hanya jika berbeda
     if (viewerVideo.src !== item.image) {
@@ -690,11 +690,11 @@ if (isVideo) {
     viewerVideo.pause();
     viewerVideo.currentTime = 0;
 
+  // Tampilkan gambar
+    viewerImage.style.display = "block";
+ 
     // Sembunyikan video
     viewerVideo.style.display = "none";
-
-    // Tampilkan gambar
-    viewerImage.style.display = "block";
 
     viewerImage.src = item.image;
 
