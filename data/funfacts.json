@@ -272,7 +272,29 @@
     "image": "https://i.imgur.com/9hDO5Pw.png",
     "category": ["Sad", "Meme"],
     "description": "-"
+  },
+  {
+    "id": 40,
+    "title": "Setidaknya aku pernah bahagia bersamamu",
+    "image": "https://i.imgur.com/hWLrd7g.png",
+    "category": ["Sad", "Anime"],
+    "description": "-"
+  },
+  {
+    "id": 41,
+    "title": "Semua laki-laki akan meninggalkan kenakalannya",
+    "image": "https://i.imgur.com/nZAwk9g.png",
+    "category": "Sad",
+    "description": "-"
+  },
+  {
+    "id": 42,
+    "title": "Gue tuh orangnya gampang akrab sama orang",
+    "image": "https://i.imgur.com/WqSd5rh.png",
+    "category": "Sad",
+    "description": "-"
   }
+  
   
   
   
