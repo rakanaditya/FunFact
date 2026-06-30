@@ -1482,13 +1482,13 @@ async function checkUpdate() {
 
                 showToast("Success");
 
-            },30000); /* Notif succes jika ada update 30 detik */
+            }, 30000); /* Notif succes jika ada update 30 detik */
 
             setTimeout(() => {
 
                 location.reload();
 
-            },30000); /* Reload website 30 detik*/
+            },2000); /* Reload website 2 detik*/
 
         }
 
