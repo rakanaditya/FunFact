@@ -2,6 +2,7 @@
   {
     "id": 1,
     "title": "Anime Romance Nonton Sampai Tamat Happy Ending",
+    "type": "image",
     "image": "https://i.imgur.com/1LIWAGV.png",
     "category": ["Sad", "Anime"],
     "description": "Anime"
@@ -9,6 +10,7 @@
   {
     "id": 2,
     "title": "Your face Ugly",
+    "type": "image",
     "image": "https://i.imgur.com/rI9cJKM.png",
     "category": ["Sad", "Anime"],
     "description": "your face is ugly in the eyes of others"
@@ -16,6 +18,7 @@
   {
     "id": 3,
     "title": "Your person perfect me",
+    "type": "image",
     "image": "https://i.imgur.com/Q5tn3s5.png",
     "category": ["Happy", "Anime"],
     "description": "Orang yang sempurna untukku"
@@ -23,6 +26,7 @@
   {
     "id": 4,
     "title": "Laki-laki tulus tidak gila wanita",
+    "type": "image",
     "image": "https://i.imgur.com/L3vwY58.png",
     "category": ["Sad", "Anime"],
     "description": "Laki-laki tulus tidak gila wanita, tapi bisa gila karena satu wanita mana gak nyata lagi."
@@ -30,6 +34,7 @@
   {
     "id": 5,
     "title": "Ketika wanita jatuh cinta",
+    "type": "image",
     "image": "https://i.imgur.com/b9LWffe.png",
     "category": ["Happy", "Anime"],
     "description": "Ketika wanita jatuh cinta, Dia akan menilai sang pria."
@@ -37,6 +42,7 @@
   {
     "id": 6,
     "title": "Sendirian akan terasa menyenangkan",
+    "type": "image",
     "image": "https://i.imgur.com/kF0aQMk.png",
     "category": ["Sad", "Anime"],
     "description": "Sendirian akan terasa menyenangkan kalau kita tahu cara menikmati waktu"
@@ -44,6 +50,7 @@
   {
     "id": 7,
     "title": "Menolak orang itu mudah",
+    "type": "image",
     "image": "https://i.imgur.com/rmvAQHz.png",
     "category": ["Sad", "Anime"],
     "description": "Menolak orang itu mudah ketika hatimu mencintai satu orang"
@@ -51,6 +58,7 @@
   {
     "id": 8,
     "title": "Andai yang banyak itu uang, bukan pikiran  ",
+    "type": "image",
     "image": "https://i.imgur.com/dG6v8sD.png",
     "category": ["Sad", "Anime"],
     "description": "-"
@@ -58,6 +66,7 @@
   {
     "id": 9,
     "title": "Aku ketika bertemu seseorang",
+    "type": "image",
     "image": "https://i.imgur.com/BQcXLgu.png",
     "category": ["Sad", "Anime"],
     "description": "Aku ketia bertemu seseorang yang mengerti perasaanku"
@@ -65,6 +74,7 @@
   {
     "id": 10,
     "title": "Aku hanya menemani",
+    "type": "image",
     "image": "https://i.imgur.com/Z3BNsEK.png",
     "category": ["Sad", "Anime"],
     "description": "Aku hanya menemani, jika bukan aku yang dipilih ya sudah"
@@ -72,6 +82,7 @@
   {
     "id": 11,
     "title": "Saking kesepiannya kadang suka kaget",
+    "type": "image",
     "image": "https://i.imgur.com/ApUeWx3.png",
     "category": ["Sad", "Anime"],
     "description": "Saking kesepiannya kadang suka kaget, kalau tiba-tiba ada yang peduli."
@@ -80,6 +91,7 @@
   {
     "id": 12,
     "title": "Aku ketika melihat dia",
+    "type": "image",
     "image": "https://i.imgur.com/Iag42NO.png",
     "category": ["Sad", "Anime"],
     "description": "Aku ketika melihat dia, dan dia melihat ke arahku. Dia terlihat seperti membenci ku."
@@ -87,6 +99,7 @@
   {
     "id": 13,
     "title": "Cuma suka ngelawak",
+    "type": "image",
     "image": "https://i.imgur.com/rMW7MjN.png",
     "category": ["Happy", "Anime"],
     "description": "Cuma suka ngelawak, kalau suka kamu atut di tolak. Rawrrrrrrrr"
@@ -94,6 +107,7 @@
   {
     "id": 14,
     "title": "Melepaskanmu itu bukan kemauan diriku",
+    "type": "image",
     "image": "https://i.imgur.com/np3yF8s.png",
     "category": ["Sad", "Anime"],
     "description": "Melepaskanmu itu bukan kemauan diriku, hanya saja diriku mengalah dengan seseorang yang telah membuatmu bahagia melebihi diriku."
@@ -101,6 +115,7 @@
   {
     "id": 15,
     "title": "Seorang laki-laki dengan seluruh kenangannya",
+    "type": "image",
     "image": "https://i.imgur.com/bL96kQH.png",
     "category": ["Sad", "Anime"],
     "description": "-"
@@ -108,6 +123,7 @@
   {
     "id": 16,
     "title": "Elu yang sehabis bangun dari mimpi",
+    "type": "image",
     "image": "https://i.imgur.com/9W1Hs3S.png",
     "category": ["Sad", "Anime"],
     "description": "-"
@@ -115,6 +131,7 @@
   {
     "id": 17,
     "title": "Mencintai tidak harus memiliki",
+    "type": "image",
     "image": "https://i.imgur.com/tK5GOwh.png",
     "category": ["Sad", "Anime"],
     "description": "-"
@@ -122,6 +139,7 @@
   {
     "id": 18,
     "title": "Tidak ada yang istimewa tentang saya",
+    "type": "image",
     "image": "https://i.imgur.com/BUwLOgB.png",
     "category": ["Sad", "Anime"],
     "description": "-"
@@ -129,6 +147,7 @@
   {
     "id": 19,
     "title": "Kadang tentang orang tua",
+    "type": "image",
     "image": "https://i.imgur.com/LRjrc9a.png",
     "category": ["Sad", "Anime"],
     "description": "-"
@@ -136,6 +155,7 @@
   {
     "id": 20,
     "title": "Banyak laki-laki yang tulus di dunia ini",
+    "type": "image",
     "image": "https://i.imgur.com/lRZeQ6A.png",
     "category": ["Sad", "Anime"],
     "description": "-"
@@ -143,6 +163,7 @@
   {
     "id": 21,
     "title": "Dulu dihari itu",
+    "type": "image",
     "image": "https://i.imgur.com/y9xhqjk.png",
     "category": ["Sad", "Anime"],
     "description": "-"
@@ -150,6 +171,7 @@
   {
     "id": 22,
     "title": "Akhirnya aku berada di titik dimana aku selalu mencari cara biar bisa bahagia",
+    "type": "image",
     "image": "https://i.imgur.com/vJAr3Lx.png",
     "category": ["Sad", "Anime"],
     "description": "-"
@@ -157,6 +179,7 @@
   {
     "id": 23,
     "title": "Kau bersedih karena dia tidak memilih mu",
+    "type": "image",
     "image": "https://i.imgur.com/1txFaWA.png",
     "category": ["Sad", "Anime"],
     "description": "-"
@@ -164,6 +187,7 @@
   {
     "id": 24,
     "title": "Aku takut perasaan ini abadi untuk mu",
+    "type": "image",
     "image": "https://i.imgur.com/pOcgrfM.png",
     "category": ["Sad", "Anime"],
     "description": "-"
@@ -171,6 +195,7 @@
   {
     "id": 25,
     "title": "Gw menyimak betapa asiknya obrolan di group",
+    "type": "image",
     "image": "https://i.imgur.com/Sg8MOGl.png",
     "category": ["Sad", "Anime"],
     "description": "-"
@@ -178,6 +203,7 @@
   {
     "id": 26,
     "title": "Aku terlalu dalam mencintai nya",
+    "type": "image",
     "image": "https://i.imgur.com/QPmg2y3.png",
     "category": ["Sad", "Anime"],
     "description": "-"
@@ -185,6 +211,7 @@
   {
     "id": 27,
     "title": "Aku tidak tahu siapa prioritas mu",
+    "type": "image",
     "image": "https://i.imgur.com/DNzU510.png",
     "category": ["Sad", "Anime"],
     "description": "-"
@@ -192,6 +219,7 @@
   {
     "id": 28,
     "title": "Entah kapan aku bisa kembali mencintai seseorang lagi",
+    "type": "image",
     "image": "https://i.imgur.com/tO7ByIA.png",
     "category": ["Sad", "Anime"],
     "description": "-"
@@ -199,6 +227,7 @@
   {
     "id": 29,
     "title": "Enakan bakso atau mie ayam?",
+    "type": "image",
     "image": "https://i.imgur.com/xchxwK6.png",
     "category": ["Sad", "Anime"],
     "description": "-"
@@ -206,6 +235,7 @@
   {
     "id": 30,
     "title": "Sial, kenapa aku tidak bisa melupakan dia",
+    "type": "image",
     "image": "https://i.imgur.com/bL96kQH.png",
     "category": ["Sad", "Anime"],
     "description": "-"
@@ -213,6 +243,7 @@
   {
     "id": 31,
     "title": "Kenapa, kau harus muncul di hadapan ku",
+    "type": "image",
     "image": "https://i.imgur.com/EFXIU5V.png",
     "category": ["Sad", "Anime"],
     "description": "-"
@@ -220,6 +251,7 @@
   {
     "id": 32,
     "title": "Kenapa aku tidak bisa seperti orang lain",
+    "type": "image",
     "image": "https://i.imgur.com/TJbcpKw.png",
     "category": ["Sad", "Anime"],
     "description": "-"
@@ -227,6 +259,7 @@
   {
     "id": 33,
     "title": "Aku tidak pernah dijadikan Favorite",
+    "type": "image",
     "image": "https://i.imgur.com/PUelfcN.png",
     "category": ["Sad", "Anime"],
     "description": "-"
@@ -234,6 +267,7 @@
   {
     "id": 34,
     "title": "Tidak semua orang yang kau cintai dia juga mencintai mu...",
+    "type": "image",
     "image": "https://i.imgur.com/bL96kQH.png",
     "category": ["Sad", "Anime"],
     "description": "-"
@@ -241,6 +275,7 @@
   {
     "id": 35,
     "title": "Orang tulus juga bersi pergi",
+    "type": "image",
     "image": "https://i.imgur.com/nQB1iyS.png",
     "category": ["Sad", "Anime"],
     "description": "-"
@@ -248,6 +283,7 @@
   {
     "id": 36,
     "title": "bahkan saat yaz sampai saat ini rasa ini masih tetap ada",
+    "type": "image",
     "image": "https://i.imgur.com/9yN1ln9.png",
     "category": ["Sad", "Anime"],
     "description": "-"
@@ -255,6 +291,7 @@
   {
     "id": 37,
     "title": "Seseorang yang merindukan masa lalunya.",
+    "type": "image",
     "image": "https://i.imgur.com/gt3mBC3.png",
     "category": ["Sad", "Anime"],
     "description": "-"
@@ -262,6 +299,7 @@
   {
     "id": 38,
     "title": "Wujud asli yang menghabiskan masa hari liburnya di rumah 😋",
+    "type": "image",
     "image": "https://i.imgur.com/vYvUov6.png",
     "category": ["Sad", "Anime"],
     "description": "-"
@@ -269,6 +307,7 @@
   {
     "id": 39,
     "title": "Makan tuh ganteng",
+    "type": "image",
     "image": "https://i.imgur.com/9hDO5Pw.png",
     "category": ["Sad", "Meme"],
     "description": "-"
@@ -276,6 +315,7 @@
   {
     "id": 40,
     "title": "Setidaknya aku pernah bahagia bersamamu",
+    "type": "image",
     "image": "https://i.imgur.com/hWLrd7g.png",
     "category": ["Sad", "Anime"],
     "description": "-"
@@ -283,6 +323,7 @@
   {
     "id": 41,
     "title": "Semua laki-laki akan meninggalkan kenakalannya",
+    "type": "image",
     "image": "https://i.imgur.com/nZAwk9g.png",
     "category": "Sad",
     "description": "-"
@@ -290,6 +331,7 @@
   {
     "id": 42,
     "title": "Gue tuh orangnya gampang akrab sama orang",
+    "type": "image",
     "image": "https://i.imgur.com/WqSd5rh.png",
     "category": "Sad",
     "description": "-"
@@ -297,6 +339,7 @@
   {
     "id": 43,
     "title": "Wajah polos tatapannya tajam",
+    "type": "image",
     "image": "https://i.imgur.com/IkD4iBB.png",
     "category": "Sad",
     "description": "-"
@@ -304,6 +347,7 @@
   {
     "id": 44,
     "title": "Kok bisa ya orang-orang pada pacaran",
+    "type": "image",
     "image": "https://i.imgur.com/H8tQrvt.png",
     "category": "Sad",
     "description": "-"
@@ -311,6 +355,7 @@
   {
     "id": 45,
     "title": "I meet someone we talk",
+    "type": "image",
     "image": "https://i.imgur.com/FhWlNHZ.png",
     "category": "Sad",
     "description": "-"
@@ -318,6 +363,7 @@
   {
     "id": 46,
     "title": "Gatekeeping myself because noone deserves",
+    "type": "image",
     "image": "https://i.imgur.com/nxErvnV.png",
     "category": "Sad",
     "description": "-"
@@ -325,6 +371,7 @@
   {
     "id": 47,
     "title": "Aku ingin sembuh dari segala hal yang membuatku berantakan",
+    "type": "image",
     "image": "https://i.imgur.com/JzPgF5c.png",
     "category": "Sad",
     "description": "-"
@@ -332,6 +379,7 @@
   {
     "id": 48,
     "title": "Orang pendiem sebenarnya banyak bicara",
+    "type": "image",
     "image": "https://i.imgur.com/UUSPPS2.png",
     "category": "Sad",
     "description": "-"
@@ -339,6 +387,7 @@
   {
     "id": 49,
     "title": "Sesepi inikah sekarang, bahkan aku menceritakan tentang hari-hariku pada diriku sendiri",
+    "type": "image",
     "image": "https://i.imgur.com/zn8ErUv.png",
     "category": ["Sad", "Anime"],
     "description": "-"
@@ -346,6 +395,7 @@
   {
     "id": 48,
     "title": "Kenapa cowok kalau habis cape kerja nyarinya game",
+    "type": "video",
     "image": "https://i.imgur.com/glk2MGf.mp4",
     "category": "Sad",
     "description": "-"
