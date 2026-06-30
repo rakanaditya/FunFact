@@ -637,15 +637,12 @@ function closeViewerWindow(){
 
     zoomScale = 1;
 
-    viewerVideo.pause();
-    viewerVideo.currentTime = 0;
-    viewerVideo.removeAttribute("src");
-    viewerVideo.load();
-  
-   viewerVideo.style.display = "none";
-   viewerImage.style.display = "block";
+    if (viewerVideo) {
+        viewerVideo.pause();
+        viewerVideo.currentTime = 0;
+    }
 
-} 
+}
   
 closeViewer.onclick=closeViewerWindow;  
   
@@ -663,24 +660,40 @@ filteredFacts[currentIndex];
   
 if(!item)return;  
     
-if(item.type === "video"){
+const isVideo =
+    item.type === "video" ||
+    item.image.toLowerCase().endsWith(".mp4");
 
+if (isVideo) {
+
+    // Sembunyikan gambar
     viewerImage.style.display = "none";
 
+    // Tampilkan video
     viewerVideo.style.display = "block";
 
-    viewerVideo.src = item.image;
-
-    viewerVideo.load();
-
-}else{
-
-    viewerVideo.pause();
+    // Ganti source hanya jika berbeda
+    if (viewerVideo.src !== item.image) {
+        viewerVideo.src = item.image;
+        viewerVideo.load();
+    }
 
     viewerVideo.currentTime = 0;
 
+    viewerVideo.play().catch(() => {
+        // Browser mungkin memblokir autoplay
+    });
+
+} else {
+
+    // Stop video
+    viewerVideo.pause();
+    viewerVideo.currentTime = 0;
+
+    // Sembunyikan video
     viewerVideo.style.display = "none";
 
+    // Tampilkan gambar
     viewerImage.style.display = "block";
 
     viewerImage.src = item.image;
