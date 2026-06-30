@@ -517,9 +517,11 @@ Gallery Masonry
 
 .gallery{
 
-column-count:2;
+    display:grid;
 
-column-gap:18px;
+    grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+
+    gap:18px;
 
 }
 
@@ -576,27 +578,19 @@ column-count:5;
 
 .card{
 
-position:relative;
+    position:relative;
 
-display:inline-block;
+    width:100%;
 
-width:100%;
+    background:var(--surface);
 
-margin:0 0 18px;
+    border-radius:20px;
 
-background:var(--surface);
+    overflow:hidden;
 
-border-radius:20px;
+    box-shadow:var(--shadow);
 
-overflow:hidden;
-
-box-shadow:var(--shadow);
-
-transition:all .3s ease;
-
-break-inside:avoid;
-
-cursor:pointer;
+    transition:.3s;
 
 }
 
@@ -616,6 +610,17 @@ box-shadow:
 
 }
 
+
+.card video{
+
+    width:100%;
+
+    height:auto;
+
+    display:block;
+
+}
+
 /* ===========================
 Image
 =========================== */
@@ -626,6 +631,10 @@ width:100%;
 
 display:block;
 
+aspect-ratio:9/16;
+
+object-fit:cover;
+   
 transition:transform .35s ease;
 
 background:#ddd;
