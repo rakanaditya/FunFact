@@ -1482,7 +1482,7 @@ async function checkUpdate() {
 
                 showToast("Success");
 
-            }, 30000); /* Notif succes jika ada update 30 detik */
+            }, 5000); /* Notif succes jika ada update 30 detik */
 
             setTimeout(() => {
 
